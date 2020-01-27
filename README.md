@@ -1,6 +1,6 @@
-# example
+# Porthub
 
-> sample framework for easy startup
+> This repo is used to compile the static page rendered on [my github.io](late1nAutumn.github.io).
 
 ## Related Projects
 
@@ -12,7 +12,7 @@
 1. [Requirements](#requirements)
 1. [Development](#development)
 
-## Usage
+## Usage;;
 
 > No API provided by this module so far
 
