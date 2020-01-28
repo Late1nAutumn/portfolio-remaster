@@ -9,6 +9,7 @@
   },
   "scripts": {
     "build": "webpack -w",
+    "winbuild": "C:/\"Program Files\"/nodejs/node_global/webpack -w",
     "test": ""
   },
   "dependencies": {
