@@ -1,5 +1,5 @@
 import React from "react";
-import data from "../data/data.jsx";
+import DATA from "../data/data.jsx";
 
 const ANIME_DURATION = 500;
 var rollTimeoutID, introTimeoutID;
@@ -14,14 +14,11 @@ class AppSlide extends React.Component {
     this.slide = this.slide.bind(this);
     this.rollSlide = this.rollSlide.bind(this);
     this.mouseOff = this.mouseOff.bind(this);
-    this.handleDot = this.handleDot.bind(this);
+    this.handleButton = this.handleButton.bind(this);
   }
   slide(sign) {
-    // console.log(sign);
     var n = sign;
-    if (sign === "+") n = (this.state.focus + 1) % data.app.length;
-    else if (sign === "-")
-      n = (this.state.focus - 1 + data.app.length) % data.app.length;
+    if (sign === undefined) n = (this.state.focus + 1) % DATA.app.length;
     this.setState({ focus: n });
   }
   rollSlide() {
@@ -47,13 +44,15 @@ class AppSlide extends React.Component {
     this.introPhaseOut(bool);
     this.setState({ mouseOver: !bool });
   }
-  handleDot(e) {
-    var n = Number(e.target.getAttribute("name"));
+  handleButton(e) {
+    if(typeof(e)==="object") var n = Number(e.target.getAttribute("name"));
+    else if (e === "+") var n = (this.state.focus + 1) % DATA.app.length;
+    else var n = (this.state.focus - 1 + DATA.app.length) % DATA.app.length;
     this.slide(n);
     this.introPhaseOut(true);
     clearTimeout(introTimeoutID);
     introTimeoutID = setTimeout(() => {
-      this.introPhaseOut(false);
+      if (this.state.mouseOver) this.introPhaseOut(false);
       this.props.setIndexState({ appNum: n });
     }, ANIME_DURATION);
   }
@@ -71,14 +70,14 @@ class AppSlide extends React.Component {
         <div id="appslide-container">
           <div
             id="appslide-button-left"
-            onClick={() => this.slide("-")}
+            onClick={() => this.handleButton("-")}
             style={{ display: this.state.mouseOver ? "block" : "none" }}
           >
             <div id="appslide-arrow-left" />
           </div>
           <div
             id="appslide-button-right"
-            onClick={() => this.slide("+")}
+            onClick={() => this.handleButton("+")}
             style={{ display: this.state.mouseOver ? "block" : "none" }}
           >
             <div id="appslide-arrow-right" />
@@ -89,7 +88,7 @@ class AppSlide extends React.Component {
           >
             {(() => {
               var arr = [];
-              for (var i = 0; i < data.app.length; i++)
+              for (var i = 0; i < DATA.app.length; i++)
                 if (i === this.state.focus)
                   arr.push(<div className="appslide-focusdot" key={i} />);
                 else
@@ -98,7 +97,7 @@ class AppSlide extends React.Component {
                       className="appslide-unfocusdot"
                       key={i}
                       name={i}
-                      onMouseOverCapture={this.handleDot}
+                      onMouseOverCapture={this.handleButton}
                     />
                   );
               return arr;

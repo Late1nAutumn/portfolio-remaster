@@ -107,6 +107,7 @@ body {
   height: 100%;
   position: relative;
   border-radius: 4px 0 0 4px;
+  vertical-align: top;
 }
 #namecard-profile-portrait {
   width: 140px;
@@ -121,19 +122,23 @@ body {
 }
 #namecard-profile-info {
   background-color: white;
+  color: #283e4a;
   width: 100%;
-  height: 200px;
+  height: 140px;
   border-bottom-left-radius: 4px;
   margin-top: 150px;
+  padding-top: 60px;
+  text-align: center;
 }
 #namecard-screen {
   display: inline-block;
   width: 650px;
   border-radius: 0 4px 4px 0;
 }
-#namecard-profile-intro,#namecard-app-intro{
+#namecard-profile-intro,
+#namecard-app-intro {
   position: absolute;
-  background-color: rgba(255,255,255,0.9);
+  background-color: rgba(255, 255, 255, 0.9);
   transition: 0.5s;
   padding: 50px 75px;
   border-color: #283e4a;
@@ -155,6 +160,7 @@ body {
   left: 0;
   width: 500px;
   height: 243px;
+  border-top-left-radius: 4px;
   border-width: 7px 0 0 0;
 }
 .namecard-app-intro-anime {
@@ -174,10 +180,22 @@ body {
   float: left;
   width: 120px;
   height: 100%;
-  background: rgba(255, 255, 255, 0.3);
 }
 #appslide-button-right {
   float: right;
+}
+#appslide-arrow-left,
+#appslide-arrow-right {
+  width: 0px;
+  border-top: 100px solid transparent;
+  border-left: 30px solid rgba(255, 255, 255, 0.3);
+  border-bottom: 100px solid transparent;
+  margin-top:75px;
+  display: inline-block;
+}
+#appslide-arrow-left{
+  border-right: 30px solid rgba(255, 255, 255, 0.3);
+  border-left: 0;
 }
 #appslide-dots {
   display: inline-block;
@@ -193,7 +211,7 @@ body {
   border-radius: 50%;
   display: inline-block;
   vertical-align: middle;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.3);
 }
 .appslide-unfocusdot {
   width: 12px;

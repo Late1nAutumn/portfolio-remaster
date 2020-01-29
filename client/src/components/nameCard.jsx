@@ -1,5 +1,5 @@
 import React from "react";
-import data from "../data/data.jsx";
+import DATA from "../data/data.jsx";
 
 class NameCard extends React.Component {
   constructor(props) {
@@ -28,13 +28,22 @@ class NameCard extends React.Component {
           onMouseOver={() => this.introPhaseOut(false)}
         >
           <div id="namecard-profile-portrait" />
-          <div id="namecard-profile-info"></div>
+          <div id="namecard-profile-info">
+            <b>Conglin Pu</b>
+            <br />
+            (Forest)
+            <br />
+            Software Engineer
+            <br />
+            <br />
+            {DATA.openToJobs?<b>Open to job opportunities!</b>:null}
+          </div>
         </div>
         <div id="namecard-screen">
           <div id="namecard-profile-intro">testtesttest</div>
           <div id="namecard-app-intro">
-            <div>{data.app[this.props.appNum].name}</div>
-            <div>{data.app[this.props.appNum].intro}</div>
+            <div>{DATA.app[this.props.appNum].name}</div>
+            <div>{DATA.app[this.props.appNum].intro}</div>
           </div>
         </div>
       </div>
