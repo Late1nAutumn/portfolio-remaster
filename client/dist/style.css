@@ -79,20 +79,28 @@ body {
 
 #namecard,
 #appslide {
+  background-color: #0073b1;
   margin-top: 30px;
   width: 100%;
   height: 350px;
   border-radius: 4px;
 }
-#screen,
+#namecard {
+  background-image: url("./asset/morning.jpg");
+  /* background-image: url('./asset/afternoon.jpg'); */
+  /* background-image: url('./asset/evening.jpg'); */
+  /* background-image: url('./asset/midnight.jpg'); */
+}
+#namecard-screen,
 #appslide-container {
   height: 100%;
   position: relative;
   overflow: hidden;
-  background-color: #0073b1;
 }
-#profile {
-  background-color: #283e4a;
+
+#namecard-profile {
+  background-color: rgba(255, 255, 255, 0.15);
+  /* background-image: url('./asset/5sec.jpg'); */
   display: inline-block;
   margin: 0;
   width: 350px;
@@ -100,7 +108,7 @@ body {
   position: relative;
   border-radius: 4px 0 0 4px;
 }
-#profile-portrait {
+#namecard-profile-portrait {
   width: 140px;
   height: 140px;
   border-radius: 50%;
@@ -109,46 +117,54 @@ body {
   top: 50px;
   position: absolute;
   background-color: grey;
+  background-image: url("./asset/portrait.jpg");
 }
-#profile-info {
+#namecard-profile-info {
   background-color: white;
   width: 100%;
   height: 200px;
   border-bottom-left-radius: 4px;
   margin-top: 150px;
 }
-#screen {
+#namecard-screen {
   display: inline-block;
-  margin: 0 0 0 1px;
-  width: 649px;
+  width: 650px;
   border-radius: 0 4px 4px 0;
 }
-#profile-details {
+#namecard-profile-intro,#namecard-app-intro{
   position: absolute;
-  background-color: white;
-  width: 100%;
-  left: -654px;
-  height: 100%;
-  transition: 0.6s;
+  background-color: rgba(255,255,255,0.9);
+  transition: 0.5s;
+  padding: 50px 75px;
+  border-color: #283e4a;
+  border-style: solid;
 }
-.profile-details-anime {
+
+#namecard-profile-intro {
+  left: -654px;
+  width: 491px;
+  height: 250px;
+  border-width: 0 7px 0 2px;
+}
+.namecard-profile-intro-anime {
   left: 0 !important;
 }
-#profile-details-content{
-  float:left;
-  width:520px;
-  margin: 0 0 0 65px;
+
+#namecard-app-intro {
+  top: 350px;
+  left: 0;
+  width: 500px;
+  height: 243px;
+  border-width: 7px 0 0 0;
 }
-#profile-details-decorate{
-  width:7px;
-  height:100%;
-  float:right;
-  background-color: #283e4a;
+.namecard-app-intro-anime {
+  top: 0 !important;
 }
 
 /************app slide*************/
 
 #appslide-container {
+  cursor: pointer;
   text-align: center;
   width: 100%;
   border-radius: 4px;
@@ -158,27 +174,28 @@ body {
   float: left;
   width: 120px;
   height: 100%;
-  background: rgba(255,255,255,0.3);
+  background: rgba(255, 255, 255, 0.3);
 }
 #appslide-button-right {
   float: right;
 }
-#appslide-dots{
+#appslide-dots {
   display: inline-block;
-  margin-top:310px;
+  margin-top: 310px;
   width: 700px;
   height: 40px;
 }
-.focusdot,.unfocusdot{
-  width:20px;
-  height:20px;
-  margin:0 4px;
+.appslide-focusdot,
+.appslide-unfocusdot {
+  width: 20px;
+  height: 20px;
+  margin: 0 6px;
   border-radius: 50%;
   display: inline-block;
   vertical-align: middle;
-  background: rgba(0,0,0,0.3);
+  background: rgba(0, 0, 0, 0.3);
 }
-.unfocusdot{
-  width:15px;
-  height:15px;
+.appslide-unfocusdot {
+  width: 12px;
+  height: 12px;
 }

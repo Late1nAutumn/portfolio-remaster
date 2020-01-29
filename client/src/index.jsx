@@ -13,20 +13,21 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      appNum: 0
     };
   }
-  componentDidMount() {
-    this.setState({
-    });
+  setIndexState(obj) {
+    this.setState(obj);
   }
+  componentDidMount() {}
   render() {
     return (
       <div>
-        <Nav/>
-        <div id = "content">
-          <NameCard/>
-          <AppSlide/>
-          <div id = "skills"></div>
+        <Nav />
+        <div id="content">
+          <NameCard appNum={this.state.appNum} />
+          <AppSlide setIndexState={this.setIndexState.bind(this)} />
+          <div id="skills"></div>
         </div>
       </div>
     );

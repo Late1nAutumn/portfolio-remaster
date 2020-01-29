@@ -1,31 +1,40 @@
 import React from "react";
+import data from "../data/data.jsx";
 
 class NameCard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
-  detailPhaseIn(e) {
-    document
-      .getElementById("profile-details")
-      .classList.add("profile-details-anime");
-  }
-  detailPhaseOut(e) {
-    document
-      .getElementById("profile-details")
-      .classList.remove("profile-details-anime");
+  introPhaseOut(bool) {
+    if (bool)
+      document
+        .getElementById("namecard-profile-intro")
+        .classList.remove("namecard-profile-intro-anime");
+    else
+      document
+        .getElementById("namecard-profile-intro")
+        .classList.add("namecard-profile-intro-anime");
   }
   render() {
     return (
-      <div id="namecard" onMouseLeave={this.detailPhaseOut}>
-        <div id="profile" className="shadow" onMouseOver={this.detailPhaseIn}>
-          <div id="profile-portrait" />
-          <div id="profile-info"></div>
+      <div
+        id="namecard"
+        className="shadow"
+        onMouseLeave={() => this.introPhaseOut(true)}
+      >
+        <div
+          id="namecard-profile"
+          onMouseOver={() => this.introPhaseOut(false)}
+        >
+          <div id="namecard-profile-portrait" />
+          <div id="namecard-profile-info"></div>
         </div>
-        <div id="screen" className="shadow">
-          <div id="profile-details">
-            <div id="profile-details-content">testtesttest</div>
-            <div id="profile-details-decorate"/>
+        <div id="namecard-screen">
+          <div id="namecard-profile-intro">testtesttest</div>
+          <div id="namecard-app-intro">
+            <div>{data.app[this.props.appNum].name}</div>
+            <div>{data.app[this.props.appNum].intro}</div>
           </div>
         </div>
       </div>
