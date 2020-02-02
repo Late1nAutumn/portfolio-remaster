@@ -1,5 +1,6 @@
 import React from "react";
 import DATA from "../data/data.jsx";
+import Svg from "../data/svgs.jsx";
 
 class NameCard extends React.Component {
   constructor(props) {
@@ -22,28 +23,58 @@ class NameCard extends React.Component {
         id="namecard"
         className="shadow"
         onMouseLeave={() => this.introPhaseOut(true)}
+        style={{
+          backgroundImage: `url("./asset/nameCardBG-${this.props.time}.jpg")`
+        }}
       >
         <div
           id="namecard-profile"
           onMouseOver={() => this.introPhaseOut(false)}
         >
-          <div id="namecard-profile-portrait" />
+          <div id="namecard-profile-portrait" title="He's awesome" />
           <div id="namecard-profile-info">
             <b>Conglin Pu</b>
-            <br />
+            <br className="untouchable" />
             (Forest)
-            <br />
+            <br className="untouchable" />
             Software Engineer
-            <br />
-            <br />
-            {DATA.openToJobs?<b>Open to job opportunities!</b>:null}
+            <br className="untouchable" />
+            <br className="untouchable" />
+            {DATA.openToJobs ? <b>Open to job opportunities!</b> : null}
           </div>
         </div>
-        <div id="namecard-screen">
-          <div id="namecard-profile-intro">testtesttest</div>
+        <div id="namecard-screen" className="untouchable">
+          <div id={"namecard-greet-" + this.props.time}>
+            {(() => {
+              switch (this.props.time) {
+                case 0:
+                  return "Good Morning";
+                case 1:
+                  return "Good Afternoon";
+                case 2:
+                  return "Good Evening";
+                case 3:
+                  return (
+                    <div>
+                      Don't stay up
+                      <br />
+                      too late
+                    </div>
+                  );
+              }
+            })()}
+          </div>
+          <div id="namecard-profile-intro">
+            <div id="namecard-profile-intro-container">testtesttest</div>
+          </div>
           <div id="namecard-app-intro">
-            <div>{DATA.app[this.props.appNum].name}</div>
-            <div>{DATA.app[this.props.appNum].intro}</div>
+            <div id="namecard-app-intro-container">
+              <div>{DATA.app[this.props.appNum].name}</div>
+              <div>{DATA.app[this.props.appNum].intro}</div>
+              <div id="namecard-app-intro-decoration">
+                <Svg name="react" height="400" fillOpacity="0.1" />
+              </div>
+            </div>
           </div>
         </div>
       </div>

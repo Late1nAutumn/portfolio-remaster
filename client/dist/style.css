@@ -19,11 +19,36 @@ body {
   margin: auto;
 }
 
+#BG-hexs {
+  z-index: -1;
+  position: fixed;
+  top: 60%;
+  left: 10%;
+}
+#BG-hexs-container {
+  position: relative;
+}
+.BG-hex {
+  position: absolute;
+}
+#BG-hex-1 {
+  left: 150px;
+  top: 75px;
+}
+#BG-hex-3 {
+  left: 190px;
+}
+
 /*************nav bar**************/
 
 #nav {
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 100%;
   background-color: #283e4a;
   height: 52px;
+  z-index: 1;
 }
 #nav-tabs {
   margin-top: 5px;
@@ -53,7 +78,7 @@ body {
   font-size: 19px;
 }
 
-#nav-logo {
+/* #nav-logo {
   display: inline-block;
   padding: 9px 9px 9px 0;
 }
@@ -73,9 +98,21 @@ body {
   padding: 1px 3px;
   background-color: orange;
   border-radius: 3px;
+} */
+#nav-lia {
+  display: inline-block;
+  margin: 6px;
 }
 
-/*************profile************/
+/**********setting tab***********/
+#settingtab {
+  background-color: white;
+  width: 75px;
+  height: 75px;
+  position: fixed;
+  top: 80%;
+}
+/************profile*************/
 
 #namecard,
 #appslide {
@@ -86,10 +123,11 @@ body {
   border-radius: 4px;
 }
 #namecard {
-  background-image: url("./asset/morning.jpg");
-  /* background-image: url('./asset/afternoon.jpg'); */
-  /* background-image: url('./asset/evening.jpg'); */
-  /* background-image: url('./asset/midnight.jpg'); */
+  margin-top: 82px;
+  /* background-image: url("./asset/nameCardBG-0.jpg"); */
+  /* background-image: url('./asset/nameCardBG-1.jpg'); */
+  /* background-image: url('./asset/nameCardBG-2.jpg'); */
+  /* background-image: url('./asset/nameCardBG-3.jpg'); */
 }
 #namecard-screen,
 #appslide-container {
@@ -97,7 +135,32 @@ body {
   position: relative;
   overflow: hidden;
 }
-
+#namecard-greet-0,
+#namecard-greet-1,
+#namecard-greet-2,
+#namecard-greet-3 {
+  position: absolute;
+  font-size: 50px;
+  font-weight: bold;
+  top: 250px;
+  left: 100px;
+  color: white;
+}
+#namecard-greet-1 {
+  top: 225px;
+  left: 90px;
+  text-shadow: 3px -3px black;
+}
+#namecard-greet-2 {
+  top: 175px;
+  left: 225px;
+}
+#namecard-greet-3 {
+  top: 25px;
+  left: 250px;
+  text-align: right;
+  margin-right: 60px;
+}
 #namecard-profile {
   background-color: rgba(255, 255, 255, 0.15);
   /* background-image: url('./asset/5sec.jpg'); */
@@ -140,15 +203,27 @@ body {
   position: absolute;
   background-color: rgba(255, 255, 255, 0.9);
   transition: 0.5s;
-  padding: 50px 75px;
   border-color: #283e4a;
   border-style: solid;
+}
+#namecard-profile-intro-container,
+#namecard-app-intro-container {
+  position: relative;
+  padding: 50px 75px;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+#namecard-app-intro-decoration {
+  position: absolute;
+  top: 120px;
+  left: 300px;
 }
 
 #namecard-profile-intro {
   left: -654px;
-  width: 491px;
-  height: 250px;
+  width: 641px;
+  height: 350px;
   border-width: 0 7px 0 2px;
 }
 .namecard-profile-intro-anime {
@@ -158,8 +233,8 @@ body {
 #namecard-app-intro {
   top: 350px;
   left: 0;
-  width: 500px;
-  height: 243px;
+  width: 650px;
+  height: 343px;
   border-top-left-radius: 4px;
   border-width: 7px 0 0 0;
 }
@@ -171,15 +246,22 @@ body {
 
 #appslide-container {
   cursor: pointer;
+  position: relative;
   text-align: center;
   width: 100%;
   border-radius: 4px;
+}
+#appslide-content {
+  position: absolute;
+  top: 50px;
+  left: 200px;
 }
 #appslide-button-left,
 #appslide-button-right {
   float: left;
   width: 120px;
   height: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 #appslide-button-right {
   float: right;
@@ -190,10 +272,10 @@ body {
   border-top: 100px solid transparent;
   border-left: 30px solid rgba(255, 255, 255, 0.3);
   border-bottom: 100px solid transparent;
-  margin-top:75px;
+  margin-top: 75px;
   display: inline-block;
 }
-#appslide-arrow-left{
+#appslide-arrow-left {
   border-right: 30px solid rgba(255, 255, 255, 0.3);
   border-left: 0;
 }

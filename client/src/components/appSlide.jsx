@@ -20,13 +20,17 @@ class AppSlide extends React.Component {
     var n = sign;
     if (sign === undefined) n = (this.state.focus + 1) % DATA.app.length;
     this.setState({ focus: n });
+    introTimeoutID = setTimeout(
+      () => this.props.setIndexState({ appNum: n }),
+      ANIME_DURATION
+    );
   }
   rollSlide() {
     clearTimeout(rollTimeoutID);
     rollTimeoutID = setTimeout(() => {
-      this.slide("+");
+      this.slide();
       this.rollSlide();
-    }, 5000);
+    }, 3000);
   }
   introPhaseOut(bool) {
     if (bool)
@@ -45,7 +49,7 @@ class AppSlide extends React.Component {
     this.setState({ mouseOver: !bool });
   }
   handleButton(e) {
-    if(typeof(e)==="object") var n = Number(e.target.getAttribute("name"));
+    if (typeof e === "object") var n = Number(e.target.getAttribute("name"));
     else if (e === "+") var n = (this.state.focus + 1) % DATA.app.length;
     else var n = (this.state.focus - 1 + DATA.app.length) % DATA.app.length;
     this.slide(n);
@@ -68,6 +72,7 @@ class AppSlide extends React.Component {
         onMouseLeave={() => this.mouseOff(true)}
       >
         <div id="appslide-container">
+          <div id="appslide-content">{DATA.app[this.state.focus].name}</div>
           <div
             id="appslide-button-left"
             onClick={() => this.handleButton("-")}
