@@ -14,7 +14,8 @@ body {
   background-color: #f5f5f5;
 }
 #content,
-#nav-container {
+#nav-container,
+#footer-content {
   width: 1000px;
   margin: auto;
 }
@@ -110,12 +111,13 @@ body {
   width: 75px;
   height: 75px;
   position: fixed;
-  top: 80%;
+  top: 65%;
 }
 /************profile*************/
 
 #namecard,
-#appslide {
+#appslide,
+#skills {
   background-color: #0073b1;
   margin-top: 30px;
   width: 100%;
@@ -298,4 +300,52 @@ body {
 .appslide-unfocusdot {
   width: 12px;
   height: 12px;
+}
+
+/*********** skills ***********/
+#skills-container {
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+@keyframes skillsBGSlide {
+  from {
+    background-position: 0 0px;
+  }
+  to {
+    background-position: 0 -1200px;
+  }
+}
+#skills-BG {
+  width: 100%;
+  height: 1200px;
+  /* opacity: 0.3; */
+  /* transform: rotate(10deg); */
+  background: linear-gradient(
+    #66ffff,
+    #ccffff 300px,
+    #ccffff 700px,
+    #66ffff 1000px,
+    #66ffff 1200px
+  );
+  animation: skillsBGSlide 20s linear infinite;
+}
+.snowball{
+  border-radius: 50%;
+  position: absolute;
+  top:-100px;
+  background: radial-gradient(white 30%,transparent 50%);
+}
+/* .snowball-anime{
+  top:400px !important;
+} */
+/*********** footer ***********/
+
+#footer {
+  width: 100%;
+  height: 250px;
+  margin-top: 100px;
+  background-color: #283e4a;
 }

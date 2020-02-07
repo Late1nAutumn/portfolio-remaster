@@ -5,6 +5,7 @@ import Nav from "./components/nav.jsx";
 import NameCard from "./components/nameCard.jsx";
 import AppSlide from "./components/appSlide.jsx";
 import Skills from "./components/skills.jsx";
+import Footer from "./components/footer.jsx";
 import SettingTab from "./components/settingTab.jsx";
 import BGDecoration from "./components/bgDecoration.jsx";
 
@@ -29,10 +30,10 @@ class App extends React.Component {
     var date = new Date();
     var hour = date.getHours();
     console.log(`Local time: ${("0" + hour).slice(-2)}:${("0" + date.getMinutes()).slice(-2)}`);
-    if (hour < 5) hour = 3;
-    else if (hour < 12) hour = 0;
-    else if (hour < 18) hour = 1;
-    else if (hour < 23) hour = 2;
+    if (hour < 5) hour = 3; //midnight
+    else if (hour < 12) hour = 0; //morning
+    else if (hour < 17) hour = 1; //afternoon
+    else if (hour < 23) hour = 2; //evening
     else hour = 3;
     this.setState({ time: hour });
   }
@@ -51,6 +52,7 @@ class App extends React.Component {
           <AppSlide setIndexState={this.setIndexState.bind(this)} />
           <Skills />
         </div>
+        <Footer />
       </div>
     );
   }
