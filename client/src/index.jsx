@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 import Nav from "./components/nav.jsx";
 import NameCard from "./components/nameCard.jsx";
 import AppSlide from "./components/appSlide.jsx";
-import Skills from "./components/skills.jsx";
+import WhiteAlbum from "./components/whiteAlbum.jsx";
 import Footer from "./components/footer.jsx";
 import SettingTab from "./components/settingTab.jsx";
 import BGDecoration from "./components/bgDecoration.jsx";
@@ -50,7 +50,7 @@ class App extends React.Component {
         <div id="content">
           <NameCard appNum={this.state.appNum} time={this.state.time} />
           <AppSlide setIndexState={this.setIndexState.bind(this)} />
-          <Skills />
+          <WhiteAlbum />
         </div>
         <Footer />
       </div>

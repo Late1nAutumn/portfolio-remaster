@@ -25,6 +25,7 @@ class AppSlide extends React.Component {
       ANIME_DURATION
     );
   }
+  // automatic slide when not hover
   rollSlide() {
     clearTimeout(rollTimeoutID);
     rollTimeoutID = setTimeout(() => {
@@ -32,6 +33,7 @@ class AppSlide extends React.Component {
       this.rollSlide();
     }, 3000);
   }
+  // controll the animation of both in & out, boolean value indicates out or not
   introPhaseOut(bool) {
     if (bool)
       document

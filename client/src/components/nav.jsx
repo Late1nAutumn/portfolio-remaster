@@ -9,17 +9,13 @@ class Nav extends React.Component {
     return (
       <div id="nav">
         <div id="nav-container">
-          {/* <div id="nav-logo">
-            <div id="nav-logo-0" className="untouchable"></div>
-            <div id="nav-logo-1" className="untouchable"></div>
-          </div> */}
           <div id="nav-lia">
             <Svg name="lia" fill="white" height="40" />
           </div>
           {/* <div id = "nav-search" className = "nav"></div> */}
-          <div id="nav-login" className="untouchable">
-            Login
-          </div>
+          {/* <div id="nav-login" className="untouchable" title="still under construction">
+            Casual Mode
+          </div> */}
           <div id="nav-tabs">
             <div className="nav-button">
               <div className="nav-button-container untouchable">

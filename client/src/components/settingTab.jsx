@@ -5,15 +5,13 @@ import Svg from "../data/svgs.jsx";
 class SettingTab extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-    };
+    this.state = {};
   }
-  componentDidMount() {
-  }
+  componentDidMount() {}
   render() {
     return (
       <div id="settingtab" className="shadow">
-        <Svg name="cog" fill="#283e4a" height={80}/>
+        <Svg name="cog" fill="#283e4a" height={80} />
       </div>
     );
   }
