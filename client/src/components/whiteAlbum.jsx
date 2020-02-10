@@ -1,6 +1,7 @@
 import React from "react";
 
 import Snowflake from "./wASnowflake.jsx";
+import DATA from "../data/data.jsx";
 
 var snowflakeTimeoutID;
 
@@ -8,7 +9,8 @@ class WhiteAlbum extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      snowflakeFalling: true
+      snowflakeFalling: true,
+      showingSkillID: 0
     };
     this.snowflakeFall = this.snowflakeFall.bind(this);
   }
@@ -62,16 +64,18 @@ class WhiteAlbum extends React.Component {
     var x = Math.floor(Math.random() * 500) + 400 + "px";
     Object.assign(node.style, {
       left: x,
-      top:"-100px"
+      top: "-100px"
     });
-    document.getElementById("WA-snowflake-svg").classList.remove("WA-snowflake-svg-anime");
+    document
+      .getElementById("WA-snowflake-svg")
+      .classList.remove("WA-snowflake-svg-anime");
     document.getElementById("WA-snowflake-svg").style.transform = "scale(1)";
     setTimeout(() => {
-      node.style.transition= "20s";
+      node.style.transition = "20s";
       setTimeout(() => {
         node.style.top = "360px"; // instant assign won't work
       }, 0);
-      snowflakeTimeoutID=setTimeout(() => {
+      snowflakeTimeoutID = setTimeout(() => {
         this.snowflakeFall();
       }, 20000);
     }, 100); // idk why 0ms doesn't work, maybe burden for browser is too heavy
@@ -96,19 +100,23 @@ class WhiteAlbum extends React.Component {
       transitionTimingFunction: "linear"
     });
     clearTimeout(snowflakeTimeoutID);
-    snowflakeTimeoutID=setTimeout(() => {
+    snowflakeTimeoutID = setTimeout(() => {
       this.snowflakeFall();
-    }, duration*1000);
+    }, duration * 1000);
   }
   focusSnowflake() {
+    if (!this.state.snowflakeFalling) return;
     this.setState({ snowflakeFalling: false });
+    document.getElementById("WA-skill-notice").style.display = "none";
     Object.assign(document.getElementById("WA-snowflake").style, {
       left: "51px",
       top: "225px",
       transition: "3s",
       transitionTimingFunction: "linear"
     });
-    document.getElementById("WA-snowflake-svg").classList.add("WA-snowflake-svg-anime");
+    document
+      .getElementById("WA-snowflake-svg")
+      .classList.add("WA-snowflake-svg-anime");
     setTimeout(() => {
       document.getElementById("WA-skill").style.display = "block";
       document.getElementById("WA-skillImg").style.display = "block";
@@ -117,6 +125,9 @@ class WhiteAlbum extends React.Component {
     }, 3000);
   }
   blurSnowflake() {
+    this.setState({
+      showingSkillID: (this.state.showingSkillID + 1) % DATA.skill.length
+    });
     var node = document.getElementById("WA-snowflake");
     node.style.transition = "none";
     node.style.opacity = "1";
@@ -127,7 +138,8 @@ class WhiteAlbum extends React.Component {
       document.getElementById("WA-skill").style.display = "none";
       document.getElementById("WA-skillImg").style.display = "none";
     }, 0);
-    setTimeout(() => {
+    clearTimeout(snowflakeTimeoutID);
+    snowflakeTimeoutID = setTimeout(() => {
       this.snowflakeFall();
     }, 2000);
   }
@@ -146,24 +158,34 @@ class WhiteAlbum extends React.Component {
           <Snowflake type={2} /> {/* clip path for shade */}
           <div
             id="WA-snowflake"
+            style={{
+              cursor: this.state.snowflakeFalling ? "pointer" : "default"
+            }}
             onMouseOver={this.hoverSnowflake.bind(this)}
             onMouseLeave={this.leaveSnowflake.bind(this)}
             onClick={this.focusSnowflake.bind(this)}
           >
             <Snowflake type={0} height="80" />
           </div>
-          <div id="WA-skill">
-            name
-            <br />
+          <div id="WA-skill" className="untouchable">
             <div id="WA-skill-leave" onClick={this.blurSnowflake.bind(this)}>
               X
             </div>
+            {DATA.skill[this.state.showingSkillID].name}
+            <br />
+            {DATA.skill[this.state.showingSkillID].intro}
           </div>
           <div id="WA-skillImg" className="untouchable">
-            <img height="350px" src="./asset/nameCardBG-2.jpg" />
+            <img
+              height="350px"
+              src={DATA.skill[this.state.showingSkillID].img}
+            />
             <div id="WA-skillImg-filter" />
             <div id="WA-skillImg-shade" />
           </div>
+        </div>
+        <div id="WA-skill-notice" className="shadow untouchable">
+          Click the snowflake!
         </div>
       </div>
     );
