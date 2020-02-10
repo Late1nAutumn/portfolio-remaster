@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import axios from "axios";
 
 import Nav from "./components/nav.jsx";
 import NameCard from "./components/nameCard.jsx";
@@ -40,6 +41,7 @@ class App extends React.Component {
   componentDidMount() {
     this.getLang();
     this.getTime();
+    // axios.post("http://whitealbum.herokuapp.com/porthub/visit");
   }
   render() {
     return (

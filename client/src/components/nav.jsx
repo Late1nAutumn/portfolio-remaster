@@ -1,9 +1,33 @@
 import React from "react";
+import axios from "axios";
+
 import Svg from "../data/svgs.jsx";
+
 class Nav extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      like: 0,
+      // for svg coloring
+      hoverhome: false,
+      hoverapps: false,
+      hoverjourney: false,
+      hovercontact: false
+    };
+    this.hdlHover = this.hdlHover.bind(this);
+  }
+  componentDidMount() {
+    axios
+      .get("http://whitealbum.herokuapp.com/porthub/like")
+      .then(res => this.setState({ like: res.data.value.count }));
+  }
+  like() {
+    axios
+      .post("http://whitealbum.herokuapp.com/porthub/like")
+      .then(res => this.setState({ like: this.state.like + 1 }));
+  }
+  hdlHover(name, value) {
+    this.setState({ ["hover" + name]: value });
   }
   render() {
     return (
@@ -13,33 +37,79 @@ class Nav extends React.Component {
             <Svg name="lia" fill="white" height="40" />
           </div>
           {/* <div id = "nav-search" className = "nav"></div> */}
-          {/* <div id="nav-login" className="untouchable" title="still under construction">
-            Casual Mode
-          </div> */}
           <div id="nav-tabs">
-            <div className="nav-button">
-              <div className="nav-button-container untouchable">
-                <Svg name="home" fill="white" />
+            <div
+              className="nav-button"
+              onMouseOver={() => this.hdlHover("home", true)}
+              onMouseLeave={() => this.hdlHover("home", false)}
+            >
+              <div
+                className="nav-button-container untouchable"
+                title="still under construction"
+              >
+                <Svg
+                  name="home"
+                  fill={this.state.hoverhome ? "white" : "#c7d1d8"}
+                />
                 <div>HOME</div>
               </div>
             </div>
-            <div className="nav-button">
-              <div className="nav-button-container untouchable">
-                <Svg name="lightbulb" fill="white" />
+            <div
+              className="nav-button"
+              onMouseOver={() => this.hdlHover("apps", true)}
+              onMouseLeave={() => this.hdlHover("apps", false)}
+            >
+              <div
+                className="nav-button-container untouchable"
+                title="still under construction"
+              >
+                <Svg
+                  name="lightbulb"
+                  fill={this.state.hoverapps ? "white" : "#c7d1d8"}
+                />
                 <div>APPS</div>
               </div>
             </div>
-            <div className="nav-button">
-              <div className="nav-button-container untouchable">
-                <Svg name="mortarBoard" fill="white" />
+            <div
+              className="nav-button"
+              onMouseOver={() => this.hdlHover("journey", true)}
+              onMouseLeave={() => this.hdlHover("journey", false)}
+            >
+              <div
+                className="nav-button-container untouchable"
+                title="still under construction"
+              >
+                <Svg
+                  name="mortarBoard"
+                  fill={this.state.hoverjourney ? "white" : "#c7d1d8"}
+                />
                 <div>JOURNEY</div>
               </div>
             </div>
-            <div className="nav-button">
-              <div className="nav-button-container untouchable">
-                <Svg name="phone" fill="white" />
-                <div>CONTACT</div>
+            <a href="#footer">
+              <div
+                className="nav-button"
+                onMouseOver={() => this.hdlHover("contact", true)}
+                onMouseLeave={() => this.hdlHover("contact", false)}
+              >
+                <div className="nav-button-container untouchable">
+                  <Svg
+                    name="phone"
+                    fill={this.state.hovercontact ? "white" : "#c7d1d8"}
+                  />
+                  <div>CONTACT</div>
+                </div>
               </div>
+            </a>
+          </div>
+          <div
+            id="nav-like"
+            onClick={this.like.bind(this)}
+            className="untouchable"
+          >
+            <b>{this.state.like + " "}</b>Elves liked me!
+            <div>
+              <Svg name="heart" fill="crimson" />
             </div>
           </div>
         </div>

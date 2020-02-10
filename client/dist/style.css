@@ -52,31 +52,51 @@ body {
   z-index: 1;
 }
 #nav-tabs {
-  margin-top: 5px;
-  float: right;
+  display: inline-block;
+  margin: 5px 0 0 300px;
 }
 .nav-button {
   cursor: pointer;
   width: 70px;
-  margin: 0 5px;
-  color: white;
+  margin: 0 15px;
+  color: #c7d1d8;
   display: inline-block;
   font-size: 13px;
   font-family: Arial, sans-serif;
+}
+.nav-button:hover {
+  color: white;
 }
 .nav-button-container {
   display: block;
   text-align: center;
 }
-#nav-login {
+#nav-like {
   cursor: pointer;
+  position: relative;
   float: right;
   margin: 10px 0 10px 40px;
-  border: 2px solid white;
-  border-radius: 9px;
-  padding: 3px 10px;
-  color: white;
-  font-size: 19px;
+  border: 1px solid #dccea4;
+  border-radius: 5px;
+  padding: 5px 25px 5px 5px;
+  color: #dccea4;
+  font-size: 15px;
+}
+#nav-like:hover {
+  border-color: gold;
+  color: gold;
+}
+#nav-like:active {
+  background-color: #dccea4;
+}
+#nav-like b {
+  display: inline;
+  color: crimson;
+}
+#nav-like div {
+  position: absolute;
+  top: 2px;
+  right: 1px;
 }
 #nav-lia {
   display: inline-block;
@@ -411,11 +431,11 @@ body {
 #footer {
   width: 100%;
   height: 140px;
-  margin-top: 60px;
+  margin-top: 50px;
   background-color: #283e4a;
   color: white;
 }
-#footer a{
+#footer a {
   color: #00ffff;
 }
 #footer-left,
@@ -424,19 +444,19 @@ body {
   width: 430px;
   margin: 0;
 }
-#footer-left{
+#footer-left {
   padding: 15px 0 0 70px;
   color: #aaa;
 }
-#footer-right p{
+#footer-right p {
   display: inline;
   line-height: 30px;
   vertical-align: top;
 }
-#footer-right div{
+#footer-right div {
   display: inline-block;
 }
-#footer-right td{
+#footer-right td {
   width: 200px;
   height: 40px;
 }
