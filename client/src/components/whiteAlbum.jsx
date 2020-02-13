@@ -1,6 +1,6 @@
 import React from "react";
 
-import Snowflake from "./wASnowflake.jsx";
+import Snowflake from "./parts/wASnowflake.jsx";
 import DATA from "../data/data.jsx";
 
 var snowflakeTimeoutID;
@@ -73,7 +73,7 @@ class WhiteAlbum extends React.Component {
     setTimeout(() => {
       node.style.transition = "20s";
       setTimeout(() => {
-        node.style.top = "360px"; // instant assign won't work
+        node.style.top = "351px"; // instant assign won't work
       }, 0);
       snowflakeTimeoutID = setTimeout(() => {
         this.snowflakeFall();
@@ -93,9 +93,9 @@ class WhiteAlbum extends React.Component {
   leaveSnowflake() {
     if (!this.state.snowflakeFalling) return;
     var node = document.getElementById("WA-snowflake");
-    var duration = (360 - node.offsetTop) / 23; // keep a same falling speed, 23 = 460px / 20s
+    var duration = (351 - node.offsetTop) / 23; // keep a same falling speed, 23 = 451px / 20s
     Object.assign(node.style, {
-      top: "360px",
+      top: "351px",
       transition: duration + "s",
       transitionTimingFunction: "linear"
     });
@@ -125,9 +125,6 @@ class WhiteAlbum extends React.Component {
     }, 3000);
   }
   blurSnowflake() {
-    this.setState({
-      showingSkillID: (this.state.showingSkillID + 1) % DATA.skill.length
-    });
     var node = document.getElementById("WA-snowflake");
     node.style.transition = "none";
     node.style.opacity = "1";
@@ -137,16 +134,21 @@ class WhiteAlbum extends React.Component {
       node.style.top = "900px";
       document.getElementById("WA-skill").style.display = "none";
       document.getElementById("WA-skillImg").style.display = "none";
+      this.nextSkill(); // function invoked here to avoid context changing before vanish
     }, 0);
     clearTimeout(snowflakeTimeoutID);
     snowflakeTimeoutID = setTimeout(() => {
       this.snowflakeFall();
     }, 2000);
   }
+  nextSkill() {
+    this.setState({
+      showingSkillID: (this.state.showingSkillID + 1) % DATA.skill.length
+    });
+  }
   componentDidMount() {
     this.snowFall(); // radius 20-50px, 5 balls/0.7s
     this.bigSnowball(); // radius 100-300px, 4-9s a ball
-    //Todo: z-index for bigsnowball
     this.snowflakeFall();
   }
   render() {
@@ -169,11 +171,22 @@ class WhiteAlbum extends React.Component {
           </div>
           <div id="WA-skill" className="untouchable">
             <div id="WA-skill-leave" onClick={this.blurSnowflake.bind(this)}>
-              X
+              <div>&times;</div>
             </div>
-            {DATA.skill[this.state.showingSkillID].name}
             <br />
-            {DATA.skill[this.state.showingSkillID].intro}
+            <br />
+            MY SKILL SET
+            <div id="WA-skill-name">
+              {DATA.skill[this.state.showingSkillID].name}
+            </div>
+            Skill Level:
+            <br />
+            {DATA.skill[this.state.showingSkillID].level}
+            <br />
+            <br />
+            <div id="WA-skill-next" onClick={this.nextSkill.bind(this)}>
+              <div>next</div>
+            </div>
           </div>
           <div id="WA-skillImg" className="untouchable">
             <img

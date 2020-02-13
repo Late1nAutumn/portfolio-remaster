@@ -8,7 +8,7 @@ import AppSlide from "./components/appSlide.jsx";
 import WhiteAlbum from "./components/whiteAlbum.jsx";
 import Footer from "./components/footer.jsx";
 import SettingTab from "./components/settingTab.jsx";
-import BGDecoration from "./components/bgDecoration.jsx";
+import BGDecoration from "./components/parts/bgDecoration.jsx";
 
 class App extends React.Component {
   constructor(props) {
@@ -41,14 +41,15 @@ class App extends React.Component {
   componentDidMount() {
     this.getLang();
     this.getTime();
-    // axios.post("http://whitealbum.herokuapp.com/porthub/visit");
+    axios.post("https://whitealbum.herokuapp.com/porthub/visit");
   }
   render() {
     return (
       <div>
+        <div id="modal" />
         <BGDecoration />
         <Nav />
-        <SettingTab />
+        {/* <SettingTab /> */}
         <div id="content">
           <NameCard appNum={this.state.appNum} time={this.state.time} />
           <AppSlide setIndexState={this.setIndexState.bind(this)} />

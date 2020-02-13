@@ -40,7 +40,7 @@ class NameCard extends React.Component {
             Software Engineer
             <br className="untouchable" />
             <br className="untouchable" />
-            {DATA.openToJobs ? <b>Open to job opportunities!</b> : null}
+            {DATA.openToJobs ? <b id="namecard-profile-openToJobs">Open to job opportunities!</b> : null}
           </div>
         </div>
         <div id="namecard-screen" className="untouchable">
@@ -69,8 +69,9 @@ class NameCard extends React.Component {
           </div>
           <div id="namecard-app-intro">
             <div id="namecard-app-intro-container">
-              <div>{DATA.app[this.props.appNum].name}</div>
-              <div>{DATA.app[this.props.appNum].intro}</div>
+              <div id="namecard-app-intro-name">{DATA.app[this.props.appNum].name}</div>
+              <div id="namecard-app-intro-describe">{DATA.app[this.props.appNum].describle}</div><br/>
+              <div id="namecard-app-intro-context">{DATA.app[this.props.appNum].intro}</div>
               <div id="namecard-app-intro-decoration">
                 <Svg name="react" height="400" fillOpacity="0.1" />
               </div>

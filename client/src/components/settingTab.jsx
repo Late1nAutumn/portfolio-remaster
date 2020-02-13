@@ -11,7 +11,7 @@ class SettingTab extends React.Component {
   render() {
     return (
       <div id="settingtab" className="shadow">
-        <Svg name="cog" fill="#283e4a" height={80} />
+        <Svg name="cog" fill="#c7d1d8" height={80} />
       </div>
     );
   }

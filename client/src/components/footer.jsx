@@ -9,8 +9,8 @@ class Footer extends React.Component {
   }
   componentDidMount() {
     axios
-      .get("http://whitealbum.herokuapp.com/porthub/visit")
-      .then(res => this.setState({ visit: res.data.value.count }));
+      .get("https://whitealbum.herokuapp.com/porthub/visit")
+      .then(res => this.setState({ visit: Number(res.data) }));
   }
   render() {
     return (
@@ -21,7 +21,7 @@ class Footer extends React.Component {
             <br />
             This app is styled by pure CSS.
             <br />
-            <a href="http://github.com/Late1nAutumn/porthub" target="_blank">
+            <a href="https://github.com/Late1nAutumn/porthub" target="_blank">
               Check the repo!
             </a>
             <br />

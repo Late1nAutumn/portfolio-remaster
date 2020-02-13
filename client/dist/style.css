@@ -9,7 +9,26 @@
 .shadow {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15), 0 2px 3px rgba(0, 0, 0, 0.2);
 }
+#modal {
+  /* display: none; */
+  position: fixed;
+  z-index: 2;
+  padding-top: 52px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  /* overflow: auto; */
+  background-color: rgba(0, 0, 0, 0.6);
+}
+/* z-index content:
+navbar: 4;
+modal: 2;
+snowflake: 1;
+background decorations: -1;
+ */
 body {
+  /* overflow: hidden; */
   margin: 0;
   background-color: #f5f5f5;
 }
@@ -49,7 +68,7 @@ body {
   width: 100%;
   background-color: #283e4a;
   height: 52px;
-  z-index: 1;
+  z-index: 4;
 }
 #nav-tabs {
   display: inline-block;
@@ -124,16 +143,15 @@ body {
 }
 #namecard {
   margin-top: 82px;
-  /* background-image: url("./asset/nameCardBG-0.jpg"); */
-  /* background-image: url('./asset/nameCardBG-1.jpg'); */
-  /* background-image: url('./asset/nameCardBG-2.jpg'); */
-  /* background-image: url('./asset/nameCardBG-3.jpg'); */
 }
 #namecard-screen,
 #appslide-container {
   height: 100%;
   position: relative;
   overflow: hidden;
+}
+#namecard-profile-openToJobs {
+  font-family: "Sriracha", cursive;
 }
 #namecard-greet-0,
 #namecard-greet-1,
@@ -142,6 +160,7 @@ body {
   position: absolute;
   font-size: 50px;
   font-weight: bold;
+  font-family: "Fondamento", cursive;
   top: 250px;
   left: 100px;
   color: white;
@@ -163,7 +182,6 @@ body {
 }
 #namecard-profile {
   background-color: rgba(255, 255, 255, 0.15);
-  /* background-image: url('./asset/5sec.jpg'); */
   display: inline-block;
   margin: 0;
   width: 350px;
@@ -209,10 +227,11 @@ body {
 #namecard-profile-intro-container,
 #namecard-app-intro-container {
   position: relative;
-  padding: 50px 75px;
+  padding: 40px 65px;
   overflow: hidden;
-  width: 100%;
-  height: 100%;
+  width: 520px;
+  height: 263px;
+  white-space: pre-wrap;
 }
 #namecard-app-intro-decoration {
   position: absolute;
@@ -241,6 +260,19 @@ body {
 .namecard-app-intro-anime {
   top: 0 !important;
 }
+#namecard-app-intro-name,
+#namecard-profile-intro-container {
+  font-size: 28px;
+  font-family: "Itim", cursive;
+}
+#namecard-app-intro-describe {
+  margin-top: 3px;
+  font-family: "Rokkitt", serif;
+}
+#namecard-app-intro-context {
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 17px;
+}
 
 /************app slide*************/
 
@@ -252,6 +284,9 @@ body {
   border-radius: 4px;
 }
 #appslide-content {
+  font-family: "Leckerli One", cursive;
+  font-size: 40px;
+  color: white;
   position: absolute;
   top: 50px;
   left: 200px;
@@ -261,7 +296,7 @@ body {
   float: left;
   width: 120px;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.1);
+  /* background-color: rgba(255, 255, 255, 0.1); */
 }
 #appslide-button-right {
   float: right;
@@ -329,6 +364,7 @@ body {
   }
 }
 .WA-snowball {
+  pointer-events: none;
   border-radius: 50%;
   position: absolute;
   background: radial-gradient(white 30%, transparent 50%);
@@ -339,7 +375,7 @@ body {
 #WA-snowflake {
   position: absolute;
   animation: WAsnowflakeSpin 15s linear infinite;
-  z-index: 3;
+  z-index: 1;
 }
 .WA-mask-path {
   animation: WAsnowflakeSpin 15s linear infinite;
@@ -382,9 +418,32 @@ body {
   height: 250px;
   box-shadow: 0 0 5px 5px rgba(255, 255, 255, 0.7);
   display: none;
+  text-align: center;
+  font-family: "Sriracha", cursive;
+  color: #6666ff;
+  line-height: 22px;
+  font-size: 20px;
 }
-#WA-skill-leave {
+#WA-skill-name {
+  margin: 25px 0;
+  font-weight: bold;
+  font-size: 25px;
+}
+#WA-skill-leave div,
+#WA-skill-next div {
   cursor: pointer;
+  float: right;
+  color: rgba(0, 255, 255, 0.7);
+  margin-right: 10px;
+}
+#WA-skill-leave div:hover,
+#WA-skill-next div:hover {
+  color: blue;
+}
+#WA-skill-leave div {
+  font-size: 28px;
+  font-weight: bold;
+  font-family: sans-serif;
 }
 #WA-skillImg {
   position: absolute;

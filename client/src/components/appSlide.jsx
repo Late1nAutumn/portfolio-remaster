@@ -74,7 +74,9 @@ class AppSlide extends React.Component {
         onMouseLeave={() => this.mouseOff(true)}
       >
         <div id="appslide-container">
-          <div id="appslide-content">{DATA.app[this.state.focus].name}</div>
+          <div id="appslide-content" className="untouchable">
+            {DATA.app[this.state.focus].name}
+          </div>
           <div
             id="appslide-button-left"
             onClick={() => this.handleButton("-")}

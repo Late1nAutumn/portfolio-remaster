@@ -18,12 +18,12 @@ class Nav extends React.Component {
   }
   componentDidMount() {
     axios
-      .get("http://whitealbum.herokuapp.com/porthub/like")
-      .then(res => this.setState({ like: res.data.value.count }));
+      .get("https://whitealbum.herokuapp.com/porthub/like")
+      .then(res => this.setState({ like: Number(res.data) }));
   }
   like() {
     axios
-      .post("http://whitealbum.herokuapp.com/porthub/like")
+      .post("https://whitealbum.herokuapp.com/porthub/like")
       .then(res => this.setState({ like: this.state.like + 1 }));
   }
   hdlHover(name, value) {
@@ -36,7 +36,6 @@ class Nav extends React.Component {
           <div id="nav-lia">
             <Svg name="lia" fill="white" height="40" />
           </div>
-          {/* <div id = "nav-search" className = "nav"></div> */}
           <div id="nav-tabs">
             <div
               className="nav-button"
