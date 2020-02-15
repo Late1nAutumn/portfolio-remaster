@@ -17,11 +17,19 @@ class App extends React.Component {
     this.state = {
       appNum: 0,
       language: "",
-      time: 0 //0,1,2,3 => morning,afternoon,evening,midnight
+      time: 0, //0,1,2,3 => morning,afternoon,evening,midnight
+      displayJourney: false
     };
+    this.setIndexState = this.setIndexState.bind(this);
+    this.switchJourney = this.switchJourney.bind(this);
   }
   setIndexState(obj) {
     this.setState(obj);
+  }
+  switchJourney() {
+    if (!this.state.displayJourney)
+      document.querySelector("#journeys-branch-mask-anime").beginElement(); // get by id won't work
+    this.setState({ displayJourney: !this.state.displayJourney });
   }
   getLang() {
     var language = window.navigator.userLanguage || window.navigator.language;
@@ -31,11 +39,19 @@ class App extends React.Component {
   getTime() {
     var date = new Date();
     var hour = date.getHours();
-    console.log(`Local time: ${("0" + hour).slice(-2)}:${("0" + date.getMinutes()).slice(-2)}`);
-    if (hour < 5) hour = 3; //midnight
-    else if (hour < 12) hour = 0; //morning
-    else if (hour < 17) hour = 1; //afternoon
-    else if (hour < 23) hour = 2; //evening
+    console.log(
+      `Local time: ${("0" + hour).slice(-2)}:${("0" + date.getMinutes()).slice(
+        -2
+      )}`
+    );
+    if (hour < 5) hour = 3;
+    //midnight
+    else if (hour < 12) hour = 0;
+    //morning
+    else if (hour < 17) hour = 1;
+    //afternoon
+    else if (hour < 23) hour = 2;
+    //evening
     else hour = 3;
     this.setState({ time: hour });
   }
@@ -47,13 +63,13 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Journey />
+        <Journey displayJourney={this.state.displayJourney} />
         <BGDecoration />
-        <Nav />
+        <Nav switchJourney={this.switchJourney} />
         {/* <SettingTab /> */}
         <div id="content">
           <NameCard appNum={this.state.appNum} time={this.state.time} />
-          <AppSlide setIndexState={this.setIndexState.bind(this)} />
+          <AppSlide setIndexState={this.setIndexState} />
           <WhiteAlbum />
         </div>
         <Footer />

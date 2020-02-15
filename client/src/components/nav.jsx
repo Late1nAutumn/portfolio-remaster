@@ -76,7 +76,7 @@ class Nav extends React.Component {
             >
               <div
                 className="nav-button-container untouchable"
-                title="still under construction"
+                onClick={this.props.switchJourney}
               >
                 <Svg
                   name="mortarBoard"

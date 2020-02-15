@@ -16,11 +16,9 @@ var Snowflake = ({ type, height }) => {
   else
     return (
       <svg height="0" width="0" viewBox="0 0 121 141.8">
-        <defs>
-          <clipPath id={"WA-mask"+type}>
-            <Path mask={true} />
-          </clipPath>
-        </defs>
+        <clipPath id={"WA-mask" + type}>
+          <Path mask={true} />
+        </clipPath>
       </svg>
     );
 };

@@ -125,16 +125,25 @@ body {
 /************journey*************/
 #journeys {
   position: relative;
-  padding-top: 90px;
+  padding-top: 85px;
 }
-#journeys > svg {
+#journeys-branch,
+.journeys-mask {
   position: absolute;
   left: 0;
   top: 52px;
 }
+#journeys-branch {
+  clip-path: url(#journeys-branch-mask);
+}
 .journey-container {
   font-family: "Tomorrow", sans-serif;
   position: relative;
+}
+.journey-mask {
+  position: absolute;
+  margin-top: 0px;
+  left: 0;
 }
 .journey-wrap {
   width: 638px;
@@ -171,13 +180,42 @@ body {
   border-bottom: 7px solid transparent;
   border-left: 10px solid #0073b1;
 }
-.journey-container > svg {
+.journey-dot {
   position: absolute;
   margin-top: 4px;
   left: 628px;
 }
+#journey-masked0 {
+  clip-path: url(#journey-mask0);
+}
+#journey-masked1 {
+  clip-path: url(#journey-mask1);
+}
+#journey-masked2 {
+  clip-path: url(#journey-mask2);
+}
+#journey-masked3 {
+  clip-path: url(#journey-mask3);
+}
+#journey-masked4 {
+  clip-path: url(#journey-mask4);
+}
+#journey-masked5 {
+  clip-path: url(#journey-mask5);
+}
+#journey-masked6 {
+  clip-path: url(#journey-mask6);
+}
+#journey-masked7 {
+  clip-path: url(#journey-mask7);
+}
+#journey-masked8 {
+  clip-path: url(#journey-mask8);
+}
 #journey-end {
-  clear: both;
+  position: absolute;
+  top: 750px;
+  width: 100%;
   text-align: center;
   color: white;
   font-size: 50px;
@@ -282,7 +320,7 @@ body {
 #namecard-profile-intro,
 #namecard-app-intro {
   position: absolute;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(235, 255, 255, 0.9);
   transition: 0.5s;
   border-color: #283e4a;
   border-style: solid;
