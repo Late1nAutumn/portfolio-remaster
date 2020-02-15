@@ -1,7 +1,7 @@
 import React from "react";
 
 import Snowflake from "./parts/wASnowflake.jsx";
-import DATA from "../data/data.jsx";
+import DATA from "./parts/data.jsx";
 
 var snowflakeTimeoutID;
 

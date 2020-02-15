@@ -1,6 +1,6 @@
 import React from "react";
 
-import Svg from "../../data/svgs.jsx";
+import Svg from "./svgs.jsx";
 
 const BGDecoration = () => (
   <div>

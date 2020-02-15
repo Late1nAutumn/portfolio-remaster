@@ -8,6 +8,7 @@ import AppSlide from "./components/appSlide.jsx";
 import WhiteAlbum from "./components/whiteAlbum.jsx";
 import Footer from "./components/footer.jsx";
 import SettingTab from "./components/settingTab.jsx";
+import Journey from "./components/journey.jsx";
 import BGDecoration from "./components/parts/bgDecoration.jsx";
 
 class App extends React.Component {
@@ -46,7 +47,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <div id="modal" />
+        <Journey />
         <BGDecoration />
         <Nav />
         {/* <SettingTab /> */}

@@ -69,9 +69,50 @@ const DATA = {
     },
     {
       name: "MongoDB",
-      level: "ntermediate",
+      level: "Intermediate",
       img:
         "https://webassets.mongodb.com/_com_assets/cms/og-meta-image-01-vz0dwahmtr.png"
+    }
+  ],
+  journey: [
+    {
+      event: "Born in Shanghai, China",
+      time: "Aug. 1992"
+    },
+    {
+      event: "Start coding with Pascal",
+      time: "2005"
+    },
+    {
+      event:
+        "Attending several Hackathons and\nwinning prizes including NOI, ACM etc.",
+      time: "2005 - 2010"
+    },
+    {
+      event:
+        "Graduate from East China University of Science and Technology.\nMajor in Mathematics and Applied Mathematics\nMinor in Finance Management",
+      time: "2015"
+    },
+    {
+      event: "Recieved my US Green Card",
+      time: "2017"
+    },
+    {
+      event:
+        "Earn master degree in Brunel University London\nMajor in Banking and Finance",
+      time: "2017"
+    },
+    {
+      event: "Start my life in America",
+      time: "2018"
+    },
+    {
+      event: "Studying full-stack web development in Hack Reactor",
+      time: "Sep. 2019"
+    },
+    {
+      event: "Software Engineer Immersive Resident in Hack Reactor",
+      time: "Nov. 2019 - Present"
     }
   ],
   openToJobs: true

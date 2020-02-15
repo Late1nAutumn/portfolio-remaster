@@ -1,5 +1,5 @@
 import React from "react";
-import DATA from "../data/data.jsx";
+import DATA from "./parts/data.jsx";
 
 const ANIME_DURATION = 500;
 var rollTimeoutID, introTimeoutID;

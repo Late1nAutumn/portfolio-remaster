@@ -1,7 +1,8 @@
 import React from "react";
 import axios from "axios";
 
-import Svg from "../data/svgs.jsx";
+import Svg from "./parts/svgs.jsx";
+
 class Footer extends React.Component {
   constructor(props) {
     super(props);

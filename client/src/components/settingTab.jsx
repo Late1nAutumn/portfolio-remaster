@@ -1,6 +1,6 @@
 // Todo: use cookies
 import React from "react";
-import Svg from "../data/svgs.jsx";
+import Svg from "./parts/svgs.jsx";
 
 class SettingTab extends React.Component {
   constructor(props) {

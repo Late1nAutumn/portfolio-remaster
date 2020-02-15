@@ -1,6 +1,6 @@
 import React from "react";
-import DATA from "../data/data.jsx";
-import Svg from "../data/svgs.jsx";
+import DATA from "./parts/data.jsx";
+import Svg from "./parts/svgs.jsx";
 
 class NameCard extends React.Component {
   constructor(props) {
