@@ -1,20 +1,21 @@
 # Porthub
 
-> This repo is used to compile the static page rendered on [my github.io](late1nAutumn.github.io).
+> This repo is used to compile the static page rendered on [my github page](late1nAutumn.github.io).
 
-## Related Projects
+## Notes
 
-  - (to be filled)
+### Todos
 
-## Table of Contents
+- Portrait photo
+- lateinautumn logo
+- Screen animation optimization
+- Img to AWS S3
 
-1. [Usage](#Usage)
-1. [Requirements](#requirements)
-1. [Development](#development)
+### Plans (or not)
 
-## Usage;;
-
-> No API provided by this module so far
+- Language selection
+- Chatty portrait (speaking)
+- Running letter effect
 
 ## Requirements
 
@@ -24,17 +25,11 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
 ## Development
 
-### Installing Dependencies and Start Server
+### Useful Commands
 
 From within the root directory:
 
 ```sh
-git remote remove origin
-git remote add origin https://github.com/...
-```
-```sh
 npm install
 npm run build
-npm start
 ```
-

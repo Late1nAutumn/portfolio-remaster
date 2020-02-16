@@ -30,7 +30,7 @@ class Journey extends React.Component {
         className="modal"
         style={{ display: this.props.displayJourney ? "block" : "none" }}
       >
-        <div id="journeys">
+        <div id="journeys" className="untouchable">
           <div className="journeys-mask">
             <svg width="1000" height="900" viewBox="0 0 1000 900">
               <clipPath id="journeys-branch-mask">
@@ -78,7 +78,6 @@ class Journey extends React.Component {
                 <svg width="1000" height="900" viewBox="0 0 1000 900">
                   <clipPath id={"journey-mask" + i}>
                     <rect
-                      fill="white"
                       x="638"
                       y={
                         i === 0

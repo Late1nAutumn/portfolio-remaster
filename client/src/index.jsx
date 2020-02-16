@@ -7,7 +7,8 @@ import NameCard from "./components/nameCard.jsx";
 import AppSlide from "./components/appSlide.jsx";
 import WhiteAlbum from "./components/whiteAlbum.jsx";
 import Footer from "./components/footer.jsx";
-import SettingTab from "./components/settingTab.jsx";
+// import SettingTab from "./components/settingTab.jsx";
+import Apps from "./components/apps.jsx";
 import Journey from "./components/journey.jsx";
 import BGDecoration from "./components/parts/bgDecoration.jsx";
 
@@ -18,18 +19,33 @@ class App extends React.Component {
       appNum: 0,
       language: "",
       time: 0, //0,1,2,3 => morning,afternoon,evening,midnight
-      displayJourney: false
+      displayApps: false,
+      displayJourney: false,
+      lightApps: false,
+      lightJourney: false
     };
     this.setIndexState = this.setIndexState.bind(this);
+    this.switchApps = this.switchApps.bind(this);
     this.switchJourney = this.switchJourney.bind(this);
   }
   setIndexState(obj) {
     this.setState(obj);
   }
+  switchApps() {
+    var temp = !this.state.displayApps;
+    // if (temp)
+    //   document.querySelector("#journeys-branch-mask-anime").beginElement();
+    document.body.style.overflowY = temp ? "hidden" : "auto";
+    this.setState({ displayApps: temp, displayJourney: false });
+    return temp;
+  }
   switchJourney() {
-    if (!this.state.displayJourney)
+    var temp = !this.state.displayJourney;
+    if (temp)
       document.querySelector("#journeys-branch-mask-anime").beginElement(); // get by id won't work
-    this.setState({ displayJourney: !this.state.displayJourney });
+    document.body.style.overflowY = temp ? "hidden" : "auto";
+    this.setState({ displayJourney: temp, displayApps: false });
+    return temp;
   }
   getLang() {
     var language = window.navigator.userLanguage || window.navigator.language;
@@ -63,9 +79,21 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <Apps
+          displayApps={this.state.displayApps}
+          setIndexState={this.setIndexState}
+        />
         <Journey displayJourney={this.state.displayJourney} />
         <BGDecoration />
-        <Nav switchJourney={this.switchJourney} />
+        <Nav
+          setIndexState={this.setIndexState}
+          switchJourney={this.switchJourney}
+          switchApps={this.switchApps}
+          displayApps={this.state.displayApps}
+          displayJourney={this.state.displayJourney}
+          lightApps={this.state.lightApps}
+          lightJourney={this.state.lightJourney}
+        />
         {/* <SettingTab /> */}
         <div id="content">
           <NameCard appNum={this.state.appNum} time={this.state.time} />

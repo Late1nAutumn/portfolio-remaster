@@ -10,8 +10,6 @@ class Nav extends React.Component {
       like: 0,
       // for svg coloring
       hoverhome: false,
-      hoverapps: false,
-      hoverjourney: false,
       hovercontact: false
     };
     this.hdlHover = this.hdlHover.bind(this);
@@ -29,6 +27,15 @@ class Nav extends React.Component {
   hdlHover(name, value) {
     this.setState({ ["hover" + name]: value });
   }
+  clickHome() {
+    this.props.setIndexState({ displayApps: false, displayJourney: false });
+    document.body.style.overflowY = "auto";
+    window.scroll({ top: 0, behavior: "smooth" });
+  }
+  clickContact() {
+    if (!this.props.displayApps && !this.props.displayJourney)
+      window.scroll({ top: document.body.clientHeight, behavior: "smooth" });
+  }
   render() {
     return (
       <div id="nav">
@@ -41,6 +48,7 @@ class Nav extends React.Component {
               className="nav-button"
               onMouseOver={() => this.hdlHover("home", true)}
               onMouseLeave={() => this.hdlHover("home", false)}
+              onClick={this.clickHome.bind(this)}
             >
               <div
                 className="nav-button-container untouchable"
@@ -48,58 +56,104 @@ class Nav extends React.Component {
               >
                 <Svg
                   name="home"
-                  fill={this.state.hoverhome ? "white" : "#c7d1d8"}
+                  fill={
+                    this.props.displayApps || this.props.displayJourney
+                      ? "#c7d1d8"
+                      : "white"
+                  }
                 />
-                <div>HOME</div>
-              </div>
-            </div>
-            <div
-              className="nav-button"
-              onMouseOver={() => this.hdlHover("apps", true)}
-              onMouseLeave={() => this.hdlHover("apps", false)}
-            >
-              <div
-                className="nav-button-container untouchable"
-                title="still under construction"
-              >
-                <Svg
-                  name="lightbulb"
-                  fill={this.state.hoverapps ? "white" : "#c7d1d8"}
-                />
-                <div>APPS</div>
-              </div>
-            </div>
-            <div
-              className="nav-button"
-              onMouseOver={() => this.hdlHover("journey", true)}
-              onMouseLeave={() => this.hdlHover("journey", false)}
-            >
-              <div
-                className="nav-button-container untouchable"
-                onClick={this.props.switchJourney}
-              >
-                <Svg
-                  name="mortarBoard"
-                  fill={this.state.hoverjourney ? "white" : "#c7d1d8"}
-                />
-                <div>JOURNEY</div>
-              </div>
-            </div>
-            <a href="#footer">
-              <div
-                className="nav-button"
-                onMouseOver={() => this.hdlHover("contact", true)}
-                onMouseLeave={() => this.hdlHover("contact", false)}
-              >
-                <div className="nav-button-container untouchable">
-                  <Svg
-                    name="phone"
-                    fill={this.state.hovercontact ? "white" : "#c7d1d8"}
-                  />
-                  <div>CONTACT</div>
+                <div
+                  style={{
+                    color:
+                      this.props.displayApps || this.props.displayJourney
+                        ? "#c7d1d8"
+                        : "white"
+                  }}
+                >
+                  HOME
                 </div>
               </div>
-            </a>
+            </div>
+            <div
+              className="nav-button"
+              onMouseOver={() => this.props.setIndexState({ lightApps: true })}
+              onMouseLeave={() =>
+                this.props.setIndexState({ lightApps: false })
+              }
+              onClick={this.props.switchApps}
+            >
+              <div className="nav-button-container untouchable">
+                <Svg
+                  name="lightbulb"
+                  fill={
+                    this.props.displayApps || this.props.lightApps
+                      ? "white"
+                      : "#c7d1d8"
+                  }
+                />
+                <div
+                  style={{
+                    color:
+                      this.props.displayApps || this.props.lightApps
+                        ? "white"
+                        : "#c7d1d8"
+                  }}
+                >
+                  APPS
+                </div>
+              </div>
+            </div>
+            <div
+              className="nav-button"
+              onMouseOver={() =>
+                this.props.setIndexState({ lightJourney: true })
+              }
+              onMouseLeave={() =>
+                this.props.setIndexState({ lightJourney: false })
+              }
+              onClick={this.props.switchJourney}
+            >
+              <div className="nav-button-container untouchable">
+                <Svg
+                  name="mortarBoard"
+                  fill={
+                    this.props.displayJourney || this.props.lightJourney
+                      ? "white"
+                      : "#c7d1d8"
+                  }
+                />
+                <div
+                  style={{
+                    color:
+                      this.props.displayJourney || this.props.lightJourney
+                        ? "white"
+                        : "#c7d1d8"
+                  }}
+                >
+                  JOURNEY
+                </div>
+              </div>
+            </div>
+            <div
+              className="nav-button"
+              onMouseOver={() => this.hdlHover("contact", true)}
+              onMouseLeave={() => this.hdlHover("contact", false)}
+              onClick={this.clickContact.bind(this)}
+            >
+              <div className="nav-button-container untouchable">
+                <Svg
+                  name="phone"
+                  fill={this.state.hovercontact ? "white" : "#c7d1d8"}
+                />
+                <div
+                  style={{
+                    color: this.state.hovercontact ? "white" : "#c7d1d8"
+                  }}
+                >
+                  CONTACT
+                </div>
+              </div>
+            </div>
           </div>
           <div
             id="nav-like"
