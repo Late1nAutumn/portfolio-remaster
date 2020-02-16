@@ -23,7 +23,7 @@
 - Gesture
 - Style for other devices
 
-## Plans (or not)
+### Plans (or not)
 
 - Language selection
 - Chatty portrait (voice)
