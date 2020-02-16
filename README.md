@@ -16,6 +16,8 @@
 - More skill sets
 - Narrative
 
+- Compress bundle
+
 - Portrait photo
 - lateinautumn logo
 - Optimize screen animation

@@ -84,6 +84,7 @@ class App extends React.Component {
     // this.getLang();
     // this.checkWindowSize();
     axios.post("https://whitealbum.herokuapp.com/porthub/visit");
+    alert("Sorry\nThis site is still underconstruction :(");
   }
   render() {
     return (
