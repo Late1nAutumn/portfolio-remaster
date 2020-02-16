@@ -33,8 +33,6 @@ class App extends React.Component {
   }
   switchApps() {
     var temp = !this.state.displayApps;
-    // if (temp)
-    //   document.querySelector("#journeys-branch-mask-anime").beginElement();
     document.body.style.overflowY = temp ? "hidden" : "auto";
     this.setState({ displayApps: temp, displayJourney: false });
     return temp;
@@ -46,11 +44,6 @@ class App extends React.Component {
     document.body.style.overflowY = temp ? "hidden" : "auto";
     this.setState({ displayJourney: temp, displayApps: false });
     return temp;
-  }
-  getLang() {
-    var language = window.navigator.userLanguage || window.navigator.language;
-    console.log(`System language ${language} detected`);
-    // Todo
   }
   getTime() {
     var date = new Date();
@@ -71,19 +64,30 @@ class App extends React.Component {
     else hour = 3;
     this.setState({ time: hour });
   }
+  // getLang() {
+  //   var language = window.navigator.userLanguage || window.navigator.language;
+  //   console.log(`System language ${language} detected`);
+  // }
+  // checkWindowSize() {
+  //   var notCalled = true;
+  //   const alertSize = () => {
+  //     if (notCalled && window.innerHeight > 1382) {
+  //       alert("Sorry!\nThe current styling might not fit your device");
+  //       notCalled = false;
+  //     }
+  //   };
+  //   alertSize();
+  //   window.addEventListener("resize", alertSize);
+  // }
   componentDidMount() {
-    this.getLang();
     this.getTime();
+    // this.getLang();
+    // this.checkWindowSize();
     axios.post("https://whitealbum.herokuapp.com/porthub/visit");
   }
   render() {
     return (
       <div>
-        <Apps
-          displayApps={this.state.displayApps}
-          setIndexState={this.setIndexState}
-        />
-        <Journey displayJourney={this.state.displayJourney} />
         <BGDecoration />
         <Nav
           setIndexState={this.setIndexState}
@@ -94,6 +98,11 @@ class App extends React.Component {
           lightApps={this.state.lightApps}
           lightJourney={this.state.lightJourney}
         />
+        <Apps
+          displayApps={this.state.displayApps}
+          setIndexState={this.setIndexState}
+        />
+        <Journey displayJourney={this.state.displayJourney} />
         {/* <SettingTab /> */}
         <div id="content">
           <NameCard appNum={this.state.appNum} time={this.state.time} />

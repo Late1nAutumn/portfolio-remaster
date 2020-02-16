@@ -22,7 +22,10 @@ class Apps extends React.Component {
     return (
       <div
         className="modal"
-        style={{ display: this.props.displayApps ? "block" : "none" }}
+        style={{
+          opacity: this.props.displayApps ? "1" : "0",
+          zIndex: this.props.displayApps ? "4" : "-1"
+        }}
       >
         <div id="apps-body-wrap">
           <div id="apps-body">
@@ -35,7 +38,10 @@ class Apps extends React.Component {
           </div>
         </div>
         <div id="apps-sidebar-wrap" className="untouchable">
-          <div id="apps-sidebar">
+          <div
+            id="apps-sidebar"
+            style={{ left: this.props.displayApps ? "-350px" : "0" }}
+          >
             <div id="apps-sidebar-title">APPS</div>
             <div id="apps-sidebar-list">
               {Data.app.map((obj, i) => (
@@ -77,7 +83,7 @@ class Apps extends React.Component {
             </div>
           </div>
           <div id="apps-sidebar-leave" onClick={this.clickLeave.bind(this)}>
-            <Svg name="leave" fill="white" height="70" />
+            <Svg name="leave" fill="#f5f5f5" height="70" />
           </div>
         </div>
       </div>

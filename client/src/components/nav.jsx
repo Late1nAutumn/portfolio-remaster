@@ -8,7 +8,7 @@ class Nav extends React.Component {
     super(props);
     this.state = {
       like: 0,
-      // for svg coloring
+      // for svg colors
       hoverhome: false,
       hovercontact: false
     };

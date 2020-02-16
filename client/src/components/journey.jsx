@@ -17,7 +17,6 @@ const ANIME_START_TIME = [83, 250, 417, 636, 907, 1074, 1293, 1460, 1626];
 class Journey extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
   }
   countMaskHeight(str) {
     var count = 0;
@@ -28,7 +27,10 @@ class Journey extends React.Component {
     return (
       <div
         className="modal"
-        style={{ display: this.props.displayJourney ? "block" : "none" }}
+        style={{
+          opacity: this.props.displayJourney ? "1" : "0",
+          zIndex: this.props.displayJourney ? "4" : "-1"
+        }}
       >
         <div id="journeys" className="untouchable">
           <div className="journeys-mask">

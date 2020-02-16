@@ -8,6 +8,7 @@ class NameCard extends React.Component {
     this.state = {};
   }
   introPhaseOut(bool) {
+    // it might be better if I use state here to control transitions
     if (bool)
       document
         .getElementById("namecard-profile-intro")
@@ -40,7 +41,9 @@ class NameCard extends React.Component {
             Software Engineer
             <br className="untouchable" />
             <br className="untouchable" />
-            {DATA.openToJobs ? <b id="namecard-profile-openToJobs">Open to job opportunities!</b> : null}
+            {DATA.openToJobs ? (
+              <b id="namecard-profile-openToJobs">Open to job opportunities!</b>
+            ) : null}
           </div>
         </div>
         <div id="namecard-screen" className="untouchable">
@@ -69,11 +72,18 @@ class NameCard extends React.Component {
           </div>
           <div id="namecard-app-intro">
             <div id="namecard-app-intro-container">
-              <div id="namecard-app-intro-name">{DATA.app[this.props.appNum].name}</div>
-              <div id="namecard-app-intro-describe">{DATA.app[this.props.appNum].describle}</div><br/>
-              <div id="namecard-app-intro-context">{DATA.app[this.props.appNum].intro}</div>
+              <div id="namecard-app-intro-name">
+                {DATA.app[this.props.appNum].name}
+              </div>
+              <div id="namecard-app-intro-describe">
+                {DATA.app[this.props.appNum].describle}
+              </div>
+              <br />
+              <div id="namecard-app-intro-context">
+                {DATA.app[this.props.appNum].intro}
+              </div>
               <div id="namecard-app-intro-decoration">
-                <Svg name="react" height="400" fillOpacity="0.1" />
+                <Svg name="react" height="400" fill="#00ffff" fillOpacity="0.2" />
               </div>
             </div>
           </div>

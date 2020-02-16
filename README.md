@@ -2,34 +2,44 @@
 
 > This repo is used to compile the static page rendered on [my github page](late1nAutumn.github.io).
 
-## Notes
+## Development
+
+### Notes
+
+- Ensure most texts untouchable
+- Check style and function on different OS
 
 ### Todos
 
+- Screenshots
+- More skill sets
+- Narrative
+
 - Portrait photo
 - lateinautumn logo
-- Screen animation optimization
+- Optimize screen animation
 - Img to AWS S3
+- Gesture
+- Style for other devices
 
-### Plans (or not)
+## Plans (or not)
 
 - Language selection
-- Chatty portrait (speaking)
+- Chatty portrait (voice)
 - Running letter effect
 
-## Requirements
-
-An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
-
-- Node 6.13.0
-
-## Development
-
-### Useful Commands
+### Available Commands
 
 From within the root directory:
 
 ```sh
 npm install
 npm run build
+npm run winbuild
 ```
+
+### Requirements
+
+An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
+
+- Node 6.13.0

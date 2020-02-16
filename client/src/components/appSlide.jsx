@@ -16,6 +16,7 @@ class AppSlide extends React.Component {
     this.mouseOff = this.mouseOff.bind(this);
     this.handleButton = this.handleButton.bind(this);
   }
+  // Todo: needs to optimize this part
   slide(sign) {
     var n = sign;
     if (sign === undefined) n = (this.state.focus + 1) % DATA.app.length;

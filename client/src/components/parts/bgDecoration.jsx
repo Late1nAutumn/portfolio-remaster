@@ -3,7 +3,7 @@ import React from "react";
 import Svg from "./svgs.jsx";
 
 const BGDecoration = () => (
-  <div>
+  <div id="BG-hexs-wrap">
     <div id="BG-hexs">
       <div id="BG-hexs-container">
         <div id="BG-hex-1" className="BG-hex">

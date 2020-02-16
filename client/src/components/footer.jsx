@@ -67,6 +67,7 @@ class Footer extends React.Component {
             </table>
           </div>
         </div>
+        <div id="footer-cover" />
       </div>
     );
   }
