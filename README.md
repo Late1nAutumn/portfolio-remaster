@@ -1,7 +1,6 @@
 # Porthub
 
-> This repo is used to compile the static page rendered on [my github page](https://Late1nAutumn.github.io).
-> Publishing [repo](https://github.com/Late1nAutumn/Late1nAutumn.github.io).
+> This repo is used to compile the static page rendered on [my github page](https://Late1nAutumn.github.io). [(repo)](https://github.com/Late1nAutumn/Late1nAutumn.github.io).
 
 ## Development
 
@@ -9,20 +8,15 @@
 
 - Ensure most texts untouchable
 - Check style and function on different OS
+- Compress the bundle before publish
 
 ### Todos
 
-- Screenshots
-- More skill sets
-- Narrative
-
-- Compress bundle
-
+- Gesture and taps event on mobile
+- Move img to AWS S3
 - Portrait photo
 - lateinautumn logo
 - Optimize screen animation
-- Img to AWS S3
-- Gesture
 - Style for other devices
 
 ### Plans (or not)

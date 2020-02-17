@@ -5,8 +5,8 @@ const DATA = {
       url: "",
       describle: "Building up backend service for a frontend app",
       intro:
-        "·  Establishing and compare efficiency between Postgres and MongoDB\r\n" +
-        "·  Optimized single querying time from 3-9 seconds to 70ms in MongoDB\r\n" +
+        "·  Establishing and compare efficiency between Postgres and MongoDB\n" +
+        "·  Optimized single querying time from 3-9 seconds to 70ms in MongoDB\n" +
         "·  Deploying database on AWS EC2 instances. Expanding maximum RPS from 1.15k to 3.1k using NGINX as load balancer combining 3 t2.micro instances, with a 0.3% error rate and 210ms average responding time",
       img: ""
     },
@@ -15,33 +15,36 @@ const DATA = {
       url: "",
       describle: "Multiplayer Uno card game connected by socket.io",
       intro:
-        "·  Implemented the minimum gameplay requirement within 4 days starting from scratch\r\n" +
-        "·  Deployed on Heroku allowing 3-12 players gaming while more clients are spectating\r\n" +
+        "·  Implemented the minimum gameplay requirement within 4 days starting from scratch\n" +
+        "·  Deployed on Heroku allowing 3-12 players gaming while more clients are spectating\n" +
+        "·  All game logics are run on the server to avoid clients cheating\n"+
         "·  Supporting all basic Uno game logic and tested for 100+ rounds",
       img: ""
     },
     {
       name: "MVPrescription",
-      url: "A medicine alarm app linked with FDA APIs",
-      describle: "Building up backend service for a frontend app",
+      url: "",
+      describle: "A medicine alarm app linked with FDA APIs",
       intro:
-        "·  Study React-native from scratch and finish the sprint within 5 days\r\n" +
+        "·  Building up backend service for a frontend app\n" +
+        "·  Study React-native from scratch and finish the sprint within 5 days\n" +
         "·  Storing user info on Google Firebase, achieve and parse medicine information from FDA",
       img: ""
     }
-    // { name: "Presentation Hub", intro: "0", img: "" },
+    // { name: "Presentation Hub", },
   ],
   skill: [
-    // not listing all my skills
     {
       name: "React.js",
       level: "Intermediate",
-      img: ""
+      img:
+        "https://booklovinmamas.com/wp-content/uploads/2017/06/react-context-api-4929b3703a1a7082d99b53eb1bbfc31f.png"
     },
     {
       name: "CSS",
       level: "Intermediate",
-      img: ""
+      img:
+        "https://yazilon.com/wp-content/uploads/2019/03/css-kodu-kullanimi.jpg"
     },
     {
       name: "Node.js",
@@ -85,12 +88,15 @@ const DATA = {
     },
     {
       event:
-        "Attending several Hackathons and\nwinning prizes including NOI, ACM etc.",
+        "Attending several Hackathons and\n" +
+        "winning prizes including NOI, ACM etc.",
       time: "2005 - 2010"
     },
     {
       event:
-        "Graduate from East China University of Science and Technology.\nMajor in Mathematics and Applied Mathematics\nMinor in Finance Management",
+        "Graduate from East China University of Science and Technology.\n" +
+        "Major in Mathematics and Applied Mathematics\n" +
+        "Minor in Finance Management",
       time: "2015"
     },
     {
@@ -99,7 +105,8 @@ const DATA = {
     },
     {
       event:
-        "Earn master degree in Brunel University London\nMajor in Banking and Finance",
+        "Earn master degree in Brunel University London.\n" +
+        "Major in Banking and Finance",
       time: "2017"
     },
     {
@@ -115,6 +122,9 @@ const DATA = {
       time: "Nov. 2019 - Present"
     }
   ],
+  personalNarrative:
+    "I’ve dreamed of working in the tech field for a long time! Since middle school, I’ve attended several hackathons like NOI, ACM, etc. These experiences gave me a strong logical thinking, and a prudential work style." +
+    "\n\nRecently I joined an immersive program to study building full-stack applications and high traffic backend support with RESTful API. And now, I'm ready to face more new challenges!",
   openToJobs: true
 };
 export default DATA;

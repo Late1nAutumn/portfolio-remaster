@@ -22,7 +22,8 @@ class App extends React.Component {
       displayApps: false,
       displayJourney: false,
       lightApps: false,
-      lightJourney: false
+      lightJourney: false,
+      appsDisplayID: 0
     };
     this.setIndexState = this.setIndexState.bind(this);
     this.switchApps = this.switchApps.bind(this);
@@ -84,7 +85,6 @@ class App extends React.Component {
     // this.getLang();
     // this.checkWindowSize();
     axios.post("https://whitealbum.herokuapp.com/porthub/visit");
-    alert("Sorry\nThis site is still underconstruction :(");
   }
   render() {
     return (
@@ -101,6 +101,7 @@ class App extends React.Component {
         />
         <Apps
           displayApps={this.state.displayApps}
+          appsDisplayID={this.state.appsDisplayID}
           setIndexState={this.setIndexState}
         />
         <Journey displayJourney={this.state.displayJourney} />

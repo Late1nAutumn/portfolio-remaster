@@ -1,18 +1,27 @@
 import React from "react";
-import Data from "./parts/data.jsx";
+
+import AppsDetail from "./parts/appsDetail.jsx";
+import DATA from "./parts/data.jsx";
 import Svg from "./parts/svgs.jsx";
 
 class Apps extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      appID: 0,
-      hoverID: -1
+      hoverID: -1,
+      hoverLeave: false
     };
-    this.hdlchange = this.hdlchange.bind(this);
+    this.hoverLeave = this.hoverLeave.bind(this);
+    this.changeApp = this.changeApp.bind(this);
   }
-  hdlchange(e, name) {
-    this.setState({ [name]: e.target.id.slice(17) });
+  changeApp(e) {
+    document.getElementById("apps-context").scroll(0, 0);
+    this.props.setIndexState({
+      appsDisplayID: Number(e.target.id.slice(17))
+    });
+  }
+  hoverLeave(hover) {
+    this.setState({ hoverLeave: hover });
   }
   clickLeave() {
     this.props.setIndexState({ displayApps: false });
@@ -21,6 +30,7 @@ class Apps extends React.Component {
   render() {
     return (
       <div
+        id="apps-modal"
         className="modal"
         style={{
           opacity: this.props.displayApps ? "1" : "0",
@@ -31,10 +41,13 @@ class Apps extends React.Component {
           <div id="apps-body">
             <div id="apps-window">
               <div id="apps-window-name" className="untouchable">
-                {Data.app[this.state.appID].name}
+                {DATA.app[this.props.appsDisplayID].name}
               </div>
             </div>
-            <div id="apps-context">testtesttest</div>
+            <div id="apps-context">
+              <AppsDetail appID={this.props.appsDisplayID} />
+            </div>
+            <div className="apps-body-edge" />
           </div>
         </div>
         <div id="apps-sidebar-wrap" className="untouchable">
@@ -44,13 +57,15 @@ class Apps extends React.Component {
           >
             <div id="apps-sidebar-title">APPS</div>
             <div id="apps-sidebar-list">
-              {Data.app.map((obj, i) => (
+              {DATA.app.map((obj, i) => (
                 <div
                   id={"apps-sidebar-item" + i}
                   className="apps-sidebar-item"
                   key={i}
-                  onClick={e => this.hdlchange(e, "appID")}
-                  onMouseOver={e => this.hdlchange(e, "hoverID")}
+                  onClick={this.changeApp}
+                  onMouseOver={e =>
+                    this.setState({ hoverID: Number(e.target.id.slice(17)) })
+                  }
                   onMouseLeave={() => this.setState({ hoverID: -1 })}
                 >
                   {obj.name}
@@ -62,7 +77,7 @@ class Apps extends React.Component {
                   top:
                     62 +
                     (this.state.hoverID === -1
-                      ? this.state.appID
+                      ? this.props.appsDisplayID
                       : this.state.hoverID) *
                       115 +
                     "px"
@@ -74,16 +89,25 @@ class Apps extends React.Component {
                   top:
                     51 +
                     (this.state.hoverID === -1
-                      ? this.state.appID
+                      ? this.props.appsDisplayID
                       : this.state.hoverID) *
                       115 +
                     "px"
                 }}
               />
             </div>
-          </div>
-          <div id="apps-sidebar-leave" onClick={this.clickLeave.bind(this)}>
-            <Svg name="leave" fill="#f5f5f5" height="70" />
+            <div
+              id="apps-sidebar-leave"
+              onMouseOver={() => this.hoverLeave(true)}
+              onMouseLeave={() => this.hoverLeave(false)}
+              onClick={this.clickLeave.bind(this)}
+            >
+              <Svg
+                name="leave"
+                fill={this.state.hoverLeave ? "#f5f5f5" : "#c7d1d8"}
+                height="70"
+              />
+            </div>
           </div>
         </div>
       </div>

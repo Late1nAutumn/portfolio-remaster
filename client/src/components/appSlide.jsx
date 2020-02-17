@@ -63,6 +63,12 @@ class AppSlide extends React.Component {
       this.props.setIndexState({ appNum: n });
     }, ANIME_DURATION);
   }
+  openApps() {
+    this.props.setIndexState({
+      displayApps: true,
+      appsDisplayID: this.state.focus
+    });
+  }
   componentDidMount() {
     this.rollSlide();
   }
@@ -75,7 +81,11 @@ class AppSlide extends React.Component {
         onMouseLeave={() => this.mouseOff(true)}
       >
         <div id="appslide-container">
-          <div id="appslide-content" className="untouchable">
+          <div
+            id="appslide-content"
+            className="untouchable"
+            onClick={this.openApps.bind(this)}
+          >
             {DATA.app[this.state.focus].name}
           </div>
           <div

@@ -1,4 +1,5 @@
 import React from "react";
+
 var Snowflake = ({ type, height }) => {
   // snowflake (0)
   if (type === 0)

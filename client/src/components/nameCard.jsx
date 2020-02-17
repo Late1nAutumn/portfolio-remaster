@@ -68,7 +68,9 @@ class NameCard extends React.Component {
             })()}
           </div>
           <div id="namecard-profile-intro">
-            <div id="namecard-profile-intro-container">testtesttest</div>
+            <div id="namecard-profile-intro-container">
+              {DATA.personalNarrative}
+            </div>
           </div>
           <div id="namecard-app-intro">
             <div id="namecard-app-intro-container">
@@ -83,7 +85,12 @@ class NameCard extends React.Component {
                 {DATA.app[this.props.appNum].intro}
               </div>
               <div id="namecard-app-intro-decoration">
-                <Svg name="react" height="400" fill="#00ffff" fillOpacity="0.2" />
+                <Svg
+                  name="react"
+                  height="400"
+                  fill="#00ffff"
+                  fillOpacity="0.2"
+                />
               </div>
             </div>
           </div>

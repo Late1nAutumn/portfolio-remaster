@@ -157,21 +157,47 @@ body {
 #apps-window {
   background-color: rgba(128, 255, 255, 0.4);
   width: 100%;
-  height: 400px;
+  height: 350px;
 }
 #apps-window-name {
   float: right;
-  margin: 340px 10px 0 0;
+  margin: 295px 20px 0 0;
   font-size: 35px;
   color: white;
   font-family: "Fondamento", Times, serif;
 }
-#apps-context {
+.apps-body-edge {
   background-color: #f5f5f5;
   width: 100%;
-  height: 350px;
-  padding: 30px 50px;
+  height: 5px;
 }
+#apps-context {
+  overflow-y: auto;
+  background-color: #f5f5f5;
+  width: 100%;
+  height: 365px;
+}
+#apps-context::-webkit-scrollbar {
+  width: 10px;
+}
+#apps-context::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+#apps-context::-webkit-scrollbar-thumb {
+  background-color: #0073b1;
+  border-radius: 4px;
+}
+#apps-context::-webkit-scrollbar-thumb:hover {
+  background-color: #39e;
+}
+/**********apps detail*********/
+#apps-detail {
+  padding: 15px 50px;
+  text-align: justify;
+  font-size: 18px;
+  font-family: "Rokkitt", serif;
+}
+/**********apps sidebar*********/
 #apps-sidebar-wrap {
   position: relative;
   height: 100%;
@@ -235,8 +261,8 @@ body {
 #apps-sidebar-leave {
   cursor: pointer;
   position: absolute;
-  bottom: 20px;
-  left: -90px;
+  bottom: 70px;
+  right: 20px;
 }
 /************journey*************/
 #journeys {
@@ -346,7 +372,6 @@ body {
   top: 65%;
 }
 /************profile*************/
-
 #namecard,
 #appslide,
 #WA {
@@ -412,7 +437,10 @@ body {
   top: 50px;
   position: absolute;
   background-color: grey;
-  background-image: url("./asset/portrait.jpg");
+  background-image: url("./asset/portrait1.jpg");
+}
+#namecard-profile-portrait:hover {
+  background-image: url("./asset/portrait0.jpg");
 }
 #namecard-profile-info {
   background-color: white;
@@ -447,11 +475,6 @@ body {
   height: 263px;
   white-space: pre-wrap;
 }
-#namecard-app-intro-decoration {
-  position: absolute;
-  top: 120px;
-  left: 300px;
-}
 
 #namecard-profile-intro {
   left: -654px;
@@ -461,6 +484,11 @@ body {
 }
 .namecard-profile-intro-anime {
   left: 0 !important;
+}
+#namecard-profile-intro-container {
+  text-align: justify;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 22px;
 }
 
 #namecard-app-intro {
@@ -474,8 +502,7 @@ body {
 .namecard-app-intro-anime {
   top: 0 !important;
 }
-#namecard-app-intro-name,
-#namecard-profile-intro-container {
+#namecard-app-intro-name {
   font-size: 28px;
   font-family: "Itim", serif;
 }
@@ -486,6 +513,11 @@ body {
 #namecard-app-intro-context {
   font-family: "Source Sans Pro", sans-serif;
   font-size: 17px;
+}
+#namecard-app-intro-decoration {
+  position: absolute;
+  top: 120px;
+  left: 300px;
 }
 
 /************app slide*************/
@@ -502,8 +534,12 @@ body {
   font-size: 40px;
   color: white;
   position: absolute;
-  top: 50px;
-  left: 200px;
+  top: 0;
+  left: 120px;
+  width: 600px;
+  height: 250px;
+  padding: 50px 80px;
+  text-align: left;
 }
 #appslide-button-left,
 #appslide-button-right {
@@ -738,6 +774,8 @@ body {
   top: 1380px;
   left: 0;
   width: 100%;
-  height: calc(100% - 1380px); /* I know this is not a good practice, but now I don't have other choice */
+  height: calc(
+    100% - 1380px
+  ); /* I know this is not a good practice, but now I don't have other choice */
   background-color: #283e4a;
 }

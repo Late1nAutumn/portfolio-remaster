@@ -1,5 +1,6 @@
 import React from "react";
-import Data from "./parts/data.jsx";
+
+import DATA from "./parts/data.jsx";
 
 // function computeAnimeTime(){
 // // 2s / 840px * ( 85px{padding} + 13px{dot margin & radius} +0 (+70px) (+70px) (+92px) (+114px) (+70px) (+92px) (+70px) (+70px))
@@ -26,6 +27,7 @@ class Journey extends React.Component {
   render() {
     return (
       <div
+        id="journey-modal"
         className="modal"
         style={{
           opacity: this.props.displayJourney ? "1" : "0",
@@ -55,7 +57,7 @@ class Journey extends React.Component {
             </svg>
             <div id="journey-end">Life goes on</div>
           </div>
-          {Data.journey.map((obj, i, arr) => (
+          {DATA.journey.map((obj, i, arr) => (
             <div className="journey-container" key={i}>
               <div id={"journey-masked" + i}>
                 <div className="journey-wrap">
