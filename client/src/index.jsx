@@ -89,17 +89,23 @@ class App extends React.Component {
       navigator.userAgent.match(/Opera Mini/i) ||
       navigator.userAgent.match(/IEMobile/i)
     ) {
-      // order of these styling can not be changed. the position is affected by the transform origin point
-      document.body.style.overflow = "hidden";
-      document.documentElement.classList.add("landscape");
-      document.documentElement.style.width = window.innerHeight + "px";
-      document.documentElement.style.top =
-        window.innerHeight - window.innerWidth - 1000;
-      this.setState({ mobileMode: true });
-      // alert("Sorry!\nCurrent styling and animation might not fit your device");
+      var temp = confirm(
+        "Sorry! Current styling and animation might not fit your device\n" +
+          "Do you want to rotate the view into landscape?"
+      );
+      if (temp) {
+        // order of these styling can not be changed. the position is affected by the transform origin point
+        document.body.style.overflow = "hidden";
+        document.documentElement.classList.add("landscape");
+        document.documentElement.style.width = window.innerHeight + "px";
+        document.documentElement.style.top =
+          window.innerHeight - window.innerWidth - 1000;
+        this.setState({ mobileMode: true });
+      }
     }
   }
   componentDidMount() {
+    console.log("version:1.0.7");
     this.getTime();
     // this.getLang();
     // this.checkWindowSize();
