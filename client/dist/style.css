@@ -26,6 +26,8 @@ font-family: "Tomorrow", sans-serif;
   height: 100vw;
   width: 100vh;
   min-width: 1000px;
+  overflow-y: hidden;
+  overflow-x: auto;
 }
 .modal {
   /* display: none; */

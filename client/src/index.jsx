@@ -82,6 +82,7 @@ class App extends React.Component {
   //   window.addEventListener("resize", alertSize);
   // }
   initMobile() {
+    document.documentElement.classList.add("landscape");
     if (
       navigator.userAgent.match(/Android/i) ||
       navigator.userAgent.match(/BlackBerry/i) ||
@@ -90,7 +91,6 @@ class App extends React.Component {
       navigator.userAgent.match(/IEMobile/i)
     ) {
       this.setState({ mobileMode: true });
-      document.documentElement.classList.add("landscape");
       alert("Sorry!\nCurrent styling and animation might not fit your device\nForcing into landscape view");
     }
   }
