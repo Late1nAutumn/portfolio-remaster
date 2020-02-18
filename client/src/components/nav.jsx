@@ -33,8 +33,11 @@ class Nav extends React.Component {
     window.scroll({ top: 0, behavior: "smooth" });
   }
   clickContact() {
-    if (!this.props.displayApps && !this.props.displayJourney)
-      window.scroll({ top: document.body.clientHeight, behavior: "smooth" });
+    if (!this.props.displayApps && !this.props.displayJourney) {
+      if (this.props.mobileMode) document.body.scroll(0, 500);
+      else
+        window.scroll({ top: document.body.clientHeight, behavior: "smooth" });
+    }
   }
   render() {
     return (

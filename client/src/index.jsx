@@ -82,7 +82,6 @@ class App extends React.Component {
   //   window.addEventListener("resize", alertSize);
   // }
   initMobile() {
-    document.documentElement.classList.add("landscape");
     if (
       navigator.userAgent.match(/Android/i) ||
       navigator.userAgent.match(/BlackBerry/i) ||
@@ -90,8 +89,14 @@ class App extends React.Component {
       navigator.userAgent.match(/Opera Mini/i) ||
       navigator.userAgent.match(/IEMobile/i)
     ) {
+      // order of these styling can not be changed. the position is affected by the transform origin point
+      document.body.style.overflow = "hidden";
+      document.documentElement.classList.add("landscape");
+      document.documentElement.style.width = window.innerHeight + "px";
+      document.documentElement.style.top =
+        window.innerHeight - window.innerWidth - 1000;
       this.setState({ mobileMode: true });
-      alert("Sorry!\nCurrent styling and animation might not fit your device\nForcing into landscape view");
+      // alert("Sorry!\nCurrent styling and animation might not fit your device");
     }
   }
   componentDidMount() {
@@ -106,6 +111,7 @@ class App extends React.Component {
       <div>
         <BGDecoration />
         <Nav
+          mobileMode={this.state.mobileMode}
           setIndexState={this.setIndexState}
           switchJourney={this.switchJourney}
           switchApps={this.switchApps}

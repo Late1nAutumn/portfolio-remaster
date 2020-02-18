@@ -16,19 +16,6 @@ font-family: "Tomorrow", sans-serif;
 .shadow {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15), 0 2px 3px rgba(0, 0, 0, 0.2);
 }
-/* html, */
-.landscape {
-  transform: rotate(90deg);
-  transform-origin: left top;
-  position: absolute;
-  top: 0;
-  left: 100vw;
-  height: 100vw;
-  width: 100vh;
-  min-width: 1000px;
-  overflow-y: hidden;
-  overflow-x: auto;
-}
 .modal {
   /* display: none; */
   position: fixed;
@@ -53,6 +40,13 @@ body {
   /* overflow-y: hidden; */
   min-width: 1000px;
   padding-top: 52px;
+}
+/* body{ */
+.landscape {
+  transform: rotate(90deg);
+  transform-origin: left top;
+  position: absolute;
+  left: 1400px;
 }
 #content,
 #nav-container,
