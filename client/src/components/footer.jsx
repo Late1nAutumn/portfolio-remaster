@@ -17,19 +17,21 @@ class Footer extends React.Component {
     return (
       <div id="footer">
         <div id="footer-content">
-          <div id="footer-left">
+          <div id="footer-logo">
             <Svg name="lia" fill="white" height="40" />
-            <br />
+          </div>
+          <div id="footer-left">
             This app is styled by pure CSS.
             <br />
             <a href="https://github.com/Late1nAutumn/porthub" target="_blank">
               Check the repo!
             </a>
             <br />
-            {this.state.visit} guests visited this place
+            {this.state.visit} visitors were here
+            <br />
+            Last update: 1/17/2020
           </div>
           <div id="footer-right">
-            <br />
             <table>
               <tbody>
                 <tr>

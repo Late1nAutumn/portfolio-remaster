@@ -80,10 +80,21 @@ class App extends React.Component {
   //   alertSize();
   //   window.addEventListener("resize", alertSize);
   // }
+  alertMobile() {
+    if (
+      navigator.userAgent.match(/Android/i) ||
+      navigator.userAgent.match(/BlackBerry/i) ||
+      navigator.userAgent.match(/iPhone|iPad|iPod/i) ||
+      navigator.userAgent.match(/Opera Mini/i) ||
+      navigator.userAgent.match(/IEMobile/i)
+    )
+      alert("Sorry!\nCurrent styling and animation might not fit your device");
+  }
   componentDidMount() {
     this.getTime();
     // this.getLang();
     // this.checkWindowSize();
+    this.alertMobile();
     axios.post("https://whitealbum.herokuapp.com/porthub/visit");
   }
   render() {

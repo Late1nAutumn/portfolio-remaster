@@ -1,8 +1,9 @@
 import React from "react";
 
-import AppsDetail from "./parts/appsDetail.jsx";
 import DATA from "./parts/data.jsx";
 import Svg from "./parts/svgs.jsx";
+import AppsContext from "./parts/appsContext.jsx";
+import AppsWindow from "./parts/appsWindow.jsx";
 
 class Apps extends React.Component {
   constructor(props) {
@@ -39,14 +40,8 @@ class Apps extends React.Component {
       >
         <div id="apps-body-wrap">
           <div id="apps-body">
-            <div id="apps-window">
-              <div id="apps-window-name" className="untouchable">
-                {DATA.app[this.props.appsDisplayID].name}
-              </div>
-            </div>
-            <div id="apps-context">
-              <AppsDetail appID={this.props.appsDisplayID} />
-            </div>
+            <AppsWindow appID={this.props.appsDisplayID} />
+            <AppsContext appID={this.props.appsDisplayID} />
             <div className="apps-body-edge" />
           </div>
         </div>

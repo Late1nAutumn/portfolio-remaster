@@ -32,7 +32,7 @@ class AppSlide extends React.Component {
     rollTimeoutID = setTimeout(() => {
       this.slide();
       this.rollSlide();
-    }, 3000);
+    }, 4000);
   }
   // controll the animation of both in & out, boolean value indicates out or not
   introPhaseOut(bool) {
@@ -79,6 +79,9 @@ class AppSlide extends React.Component {
         className="shadow"
         onMouseOverCapture={() => this.mouseOff(false)}
         onMouseLeave={() => this.mouseOff(true)}
+        style={{
+          backgroundImage: `url("./asset/appSlideBG-${this.state.focus}.jpg")`
+        }}
       >
         <div id="appslide-container">
           <div

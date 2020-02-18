@@ -9,13 +9,11 @@
 - Ensure most texts untouchable
 - Check style and function on different OS
 - Compress the bundle before publish
+- Update publish date on footer
 
 ### Todos
 
 - Gesture and taps event on mobile
-- Move img to AWS S3
-- Portrait photo
-- lateinautumn logo
 - Optimize screen animation
 - Style for other devices
 
