@@ -46,7 +46,7 @@ var AppsWindow = ({ appID }) => {
     return (
       <div id="apps-window">
         <span id="apps-window-helper" />
-        <img src="https://fortissimo.s3-us-west-1.amazonaws.com/porthub/mvp-window.jpg" />
+        <img src="https://fortissimo.s3-us-west-1.amazonaws.com/porthub/mvp-window.png" />
         <div id="apps-window-name" className="untouchable">
           {DATA.app[appID].name}
         </div>

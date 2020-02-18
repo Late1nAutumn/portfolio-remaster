@@ -16,6 +16,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      mobileMode: false,
       appNum: 0,
       language: "",
       time: 0, //0,1,2,3 => morning,afternoon,evening,midnight
@@ -80,21 +81,24 @@ class App extends React.Component {
   //   alertSize();
   //   window.addEventListener("resize", alertSize);
   // }
-  alertMobile() {
+  initMobile() {
     if (
       navigator.userAgent.match(/Android/i) ||
       navigator.userAgent.match(/BlackBerry/i) ||
       navigator.userAgent.match(/iPhone|iPad|iPod/i) ||
       navigator.userAgent.match(/Opera Mini/i) ||
       navigator.userAgent.match(/IEMobile/i)
-    )
-      alert("Sorry!\nCurrent styling and animation might not fit your device");
+    ) {
+      this.setState({ mobileMode: true });
+      document.documentElement.classList.add("landscape");
+      alert("Sorry!\nCurrent styling and animation might not fit your device\nForcing into landscape view");
+    }
   }
   componentDidMount() {
     this.getTime();
     // this.getLang();
     // this.checkWindowSize();
-    this.alertMobile();
+    this.initMobile();
     axios.post("https://whitealbum.herokuapp.com/porthub/visit");
   }
   render() {
@@ -119,7 +123,10 @@ class App extends React.Component {
         {/* <SettingTab /> */}
         <div id="content">
           <NameCard appNum={this.state.appNum} time={this.state.time} />
-          <AppSlide setIndexState={this.setIndexState} />
+          <AppSlide
+            setIndexState={this.setIndexState}
+            mobileMode={this.state.mobileMode}
+          />
           <WhiteAlbum />
         </div>
         <Footer />

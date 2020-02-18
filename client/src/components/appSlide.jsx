@@ -94,20 +94,31 @@ class AppSlide extends React.Component {
           <div
             id="appslide-button-left"
             onClick={() => this.handleButton("-")}
-            style={{ display: this.state.mouseOver ? "block" : "none" }}
+            style={{
+              display:
+                this.state.mouseOver || this.props.mobileMode ? "block" : "none"
+            }}
           >
             <div id="appslide-arrow-left" />
           </div>
           <div
             id="appslide-button-right"
             onClick={() => this.handleButton("+")}
-            style={{ display: this.state.mouseOver ? "block" : "none" }}
+            style={{
+              display:
+                this.state.mouseOver || this.props.mobileMode ? "block" : "none"
+            }}
           >
             <div id="appslide-arrow-right" />
           </div>
           <div
             id="appslide-dots"
-            style={{ display: this.state.mouseOver ? "inline-block" : "none" }}
+            style={{
+              display:
+                this.state.mouseOver || this.props.mobileMode
+                  ? "inline-block"
+                  : "none"
+            }}
           >
             {(() => {
               var arr = [];
