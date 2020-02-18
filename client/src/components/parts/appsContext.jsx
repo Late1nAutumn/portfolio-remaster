@@ -121,7 +121,7 @@ var AppsContext = ({ appID }) => {
       <div id="apps-context">
         <div id="apps-detail">
           <div id="apps-detail-icons">
-            <a title="group">
+            <a title="teamwork">
               <Svg name="group" fill="#0073b1" height="20" />
             </a>
             <a title="sprint project">

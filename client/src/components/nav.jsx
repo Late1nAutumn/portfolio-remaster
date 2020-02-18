@@ -50,10 +50,7 @@ class Nav extends React.Component {
               onMouseLeave={() => this.hdlHover("home", false)}
               onClick={this.clickHome.bind(this)}
             >
-              <div
-                className="nav-button-container untouchable"
-                title="still under construction"
-              >
+              <div className="nav-button-container untouchable">
                 <Svg
                   name="home"
                   fill={
