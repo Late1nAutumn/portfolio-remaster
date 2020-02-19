@@ -105,12 +105,12 @@ class App extends React.Component {
     }
   }
   componentDidMount() {
-    console.log("version:1.0.9");
+    console.log("version:1.0.11");
     this.getTime();
     // this.getLang();
     // this.checkWindowSize();
     this.initMobile();
-    // axios.post("https://whitealbum.herokuapp.com/porthub/visit");
+    axios.post("https://whitealbum.herokuapp.com/porthub/visit");
   }
   render() {
     return (
