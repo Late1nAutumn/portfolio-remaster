@@ -94,7 +94,7 @@ const DATA = {
       time: "2015"
     },
     {
-      event: "Recieved my US Green Card",
+      event: "Received my US Green Card",
       time: "2017"
     },
     {

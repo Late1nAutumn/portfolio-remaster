@@ -1,4 +1,10 @@
 // Todo: use cookies
+
+// Todo:
+// rotation (mobile only)
+// language
+// chatting
+
 // import React from "react";
 // import Svg from "./parts/svgs.jsx";
 
