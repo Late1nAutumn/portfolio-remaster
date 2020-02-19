@@ -20,7 +20,8 @@ var AppsWindow = ({ appID }) => {
       <div id="apps-window">
         <div id="apps-window-video">
           <div
-            id="apps-video-name"
+            id="apps-window-name"
+            onMouseOver={()=>{document.getElementById("apps-window-name").style.display="none"}}
             style={{
               right:
                 320 -

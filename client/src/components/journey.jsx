@@ -19,6 +19,10 @@ class Journey extends React.Component {
   constructor(props) {
     super(props);
   }
+  onModalClick() {
+    this.props.setIndexState({ displayJourney: false });
+    document.body.style.overflowY = "auto";
+  }
   countMaskHeight(str) {
     var count = 0;
     for (var i = 0; i < str.length; i++) if (str[i] === "\n") count++;
@@ -29,6 +33,7 @@ class Journey extends React.Component {
       <div
         id="journey-modal"
         className="modal"
+        onClick={this.onModalClick.bind(this)}
         style={{
           opacity: this.props.displayJourney ? "1" : "0",
           zIndex: this.props.displayJourney ? "4" : "-1"

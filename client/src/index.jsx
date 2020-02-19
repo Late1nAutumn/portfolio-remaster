@@ -105,12 +105,12 @@ class App extends React.Component {
     }
   }
   componentDidMount() {
-    console.log("version:1.0.7");
+    console.log("version:1.0.9");
     this.getTime();
     // this.getLang();
     // this.checkWindowSize();
     this.initMobile();
-    axios.post("https://whitealbum.herokuapp.com/porthub/visit");
+    // axios.post("https://whitealbum.herokuapp.com/porthub/visit");
   }
   render() {
     return (
@@ -131,7 +131,10 @@ class App extends React.Component {
           appsDisplayID={this.state.appsDisplayID}
           setIndexState={this.setIndexState}
         />
-        <Journey displayJourney={this.state.displayJourney} />
+        <Journey
+          displayJourney={this.state.displayJourney}
+          setIndexState={this.setIndexState}
+        />
         {/* <SettingTab /> */}
         <div id="content">
           <NameCard appNum={this.state.appNum} time={this.state.time} />

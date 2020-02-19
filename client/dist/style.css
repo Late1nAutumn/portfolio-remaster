@@ -186,8 +186,7 @@ body {
   top: 0;
   left: calc(50% - 300px);
 }
-#apps-window-name,
-#apps-video-name {
+#apps-window-name {
   position: absolute;
   top: 295px;
   right: 20px;
@@ -195,16 +194,6 @@ body {
   color: white;
   text-shadow: 2px 1px black;
   font-family: "Fondamento", Times, serif;
-}
-#apps-video-name:hover {
-  color: transparent;
-  text-shadow: none;
-}
-#apps-video-name:active {
-  color: transparent;
-  text-shadow: none;
-  /* still not perfect, user needs to click twice to interact */
-  pointer-events: none;
 }
 .apps-body-edge {
   background-color: #f5f5f5;

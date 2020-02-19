@@ -14,6 +14,14 @@ class Apps extends React.Component {
     };
     this.hoverLeave = this.hoverLeave.bind(this);
     this.changeApp = this.changeApp.bind(this);
+    this.onModalClick = this.onModalClick.bind(this);
+  }
+  onModalClick(e) {
+    // checking both modal and body-wrap
+    if (e.target === e.currentTarget) {
+      this.props.setIndexState({ displayApps: false });
+      document.body.style.overflowY = "auto";
+    }
   }
   changeApp(e) {
     document.getElementById("apps-context").scroll(0, 0);
@@ -33,12 +41,13 @@ class Apps extends React.Component {
       <div
         id="apps-modal"
         className="modal"
+        onClick={this.onModalClick}
         style={{
           opacity: this.props.displayApps ? "1" : "0",
           zIndex: this.props.displayApps ? "4" : "-1"
         }}
       >
-        <div id="apps-body-wrap">
+        <div id="apps-body-wrap" onClick={this.onModalClick}>
           <div id="apps-body">
             <AppsWindow appID={this.props.appsDisplayID} />
             <AppsContext appID={this.props.appsDisplayID} />
