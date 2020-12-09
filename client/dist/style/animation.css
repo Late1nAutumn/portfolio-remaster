@@ -1,0 +1,141 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes arrow-glow {
+  from {
+    opacity: 1;
+  }
+  30% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 0;
+  }
+  to {
+    opacity: 0;
+  }
+}
+#arrow-stroke1,
+#arrow-stroke2,
+#arrow-stroke3 {
+  opacity: 0;
+  animation: arrow-glow 2s infinite;
+}
+#arrow-stroke2 {
+  animation-delay: 0.5s;
+}
+#arrow-stroke3 {
+  animation-delay: 1s;
+}
+
+/* cover */
+
+@keyframes cover-portraitDash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes cover-BGwave {
+  to {
+    background-position-x: 1440px;
+  }
+}
+@keyframes cover-waveRise {
+  to {
+    bottom: 0;
+  }
+}
+.cover-wave-vert {
+  animation: cover-waveRise 1s ease-out 1 normal forwards;
+}
+#cover-wave1-vert {
+  animation-delay: 2s;
+}
+#cover-wave2-vert {
+  animation-delay: 4s;
+}
+#cover-wave3-vert {
+  animation-delay: 6s;
+}
+
+.cover-wave-hori-anime {
+  animation: cover-BGwave linear infinite;
+}
+#cover-wave1-hori {
+  animation-duration: 20s;
+}
+#cover-wave2-hori {
+  animation-duration: 13.7s;
+  animation-delay: -5s;
+}
+#cover-wave3-hori {
+  animation-duration: 10.3s;
+  animation-delay: -10s;
+}
+
+#cover-greet,
+#cover-chat {
+  transition: all 0.4s linear;
+  opacity: 1;
+  bottom: 5%;
+}
+#cover-intro {
+  transition: all 0.6s linear;
+  opacity: 1;
+  bottom: 50%;
+}
+.cover-hiddenBox {
+  opacity: 0 !important;
+  bottom: 0 !important;
+}
+
+/* journey */
+
+@keyframes journey-stem-grow {
+  from {
+    height: 0;
+  }
+  to {
+    height: 67%;
+  }
+}
+
+.journey-stem-anime {
+  animation: journey-stem-grow 1.7s forwards linear;
+}
+.journey-end-fadeIn {
+  animation: fadeIn 1s forwards 1.75s;
+}
+
+/* skill */
+
+@keyframes skill-r1-spin {
+  to {
+    top: 50%;
+    left: 50%;
+    transform: rotate(0deg);
+  }
+}
+.skill-R1icon-anime {
+  animation: skill-r1-spin 0.5s forwards linear;
+}
+
+/* applist */
+
+#applist-list,
+#applist-content {
+  transition: opacity 0.5s;
+}
+#applist-pointer {
+  transition: all 0.5s;
+}
+#applist-contentBGC {
+  transition: height 0.5s;
+}

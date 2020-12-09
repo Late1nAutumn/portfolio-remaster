@@ -1,0 +1,63 @@
+.untouchable {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+}
+.shadow {
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15), 0 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+html {
+  overflow: hidden;
+  scroll-behavior: smooth;
+  font-family: sans-serif;
+  background-color: #333333;
+}
+html,
+body {
+  width: 100%;
+  margin: 0;
+}
+
+.view {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#view0 {
+  background-color: #333333;
+}
+#view1 {
+  background-color: darkgreen;
+}
+#view3 {
+  background-color: saddlebrown;
+}
+#view4 {
+  background-color: #111133;
+}
+
+#arrow {
+  position: absolute;
+  left: 0;
+  bottom: 10px;
+  z-index: 2;
+  width: 100%;
+  height: 10%;
+  cursor: pointer;
+}
+
+/* #mobileDev {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+  width: 100px;
+  height: 50px;
+  padding: 10px;
+  z-index: 100;
+} */

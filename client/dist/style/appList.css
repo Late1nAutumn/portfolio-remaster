@@ -1,0 +1,86 @@
+#applist {
+  height: 100%;
+}
+#applist-title {
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-size: 55px;
+  margin: 30px 0 20px 0;
+}
+#applist-list {
+  width: 70%;
+  height: 25%;
+  padding: 0 15%;
+  display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;      /* TWEENER - IE 10 */
+  display: -webkit-flex;     /* NEW - Chrome */
+  display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  justify-content: space-evenly;
+}
+.applist-img {
+  width: 25%;
+  height: 80%;
+  border-radius: 15px;
+}
+
+#applist-pointer {
+  position: absolute;
+  height: 0;
+  width: 0;
+  border-bottom: 17px solid whitesmoke;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  top: calc(25% + 96px);
+  transform: translate(-50%, 0);
+}
+
+#applist-contentBGC {
+  position: absolute;
+  top: calc(25% + 112px);
+  width: 100%;
+  background-color: whitesmoke;
+}
+#applist-content {
+  position: absolute;
+  top: calc(25% + 132px);
+  height: 50%;
+  width: 60%;
+  margin: 0 18%;
+  padding: 0 2%;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+.applist-appTitle {
+  display: inline-block;
+  font-weight: bold;
+  font-size: 40px;
+  margin-right: 20px;
+}
+.applist-appDescrip {
+  margin-bottom: 25px;
+  display: inline-block;
+  font-size: 18px;
+  color: saddlebrown;
+}
+.applist-highlights {
+  margin: 12px 0;
+  white-space: pre-line;
+  font-size: 20px;
+}
+.applist-svg {
+  margin: 10px 0 0 15px;
+  height: 18px;
+  fill: saddlebrown;
+  vertical-align: text-bottom;
+}
+#applist-detail {
+  margin-top: 80px;
+}
+#applist-detail img {
+  display: block;
+  border-radius: 20px;
+  margin: auto;
+  max-width: 80%;
+}

@@ -10,18 +10,12 @@
 - Check style and function on different OS
 - Compress the bundle before publish
 - Update publish date on footer
+- production build
 
 ### Todos
 
-- Gesture and taps event on mobile
-- Optimize screen animation
-- Style for other devices
-
-### Plans (or not)
-
-- Language selection
-- Chatty portrait (voice)
-- Running letter effect
+- loading background color
+- mac touchpad roll action
 
 ### Available Commands
 

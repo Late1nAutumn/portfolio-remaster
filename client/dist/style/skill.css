@@ -1,0 +1,78 @@
+#skill {
+  width: 100%;
+  height: 100%;
+}
+.skill-R1icon {
+  position: absolute;
+  height: 30px;
+}
+
+#skill-portrait {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  max-height: 25%;
+  max-width: 25%;
+  border-radius: 50%;
+  -webkit-clip-path: url(#skill-R4);
+  clip-path: url(#skill-R4);
+  transform: translate(-50%, -50%);
+}
+
+.skill-skillContainer {
+  height: 20vw;
+  max-height: 20%;
+  position: absolute;
+  transition: top 1s, left 1s, opacity 1s;
+  transform: translate(-50%, -50%);
+}
+.skill-skillImg {
+  position: absolute;
+  height: 100%;
+  -webkit-clip-path: url(#skill-R5clip);
+  clip-path: url(#skill-R5clip);
+}
+.skill-skillText {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  font-size: 38px;
+  vertical-align: middle;
+  text-align: center;
+  white-space: pre-line;
+  -webkit-clip-path: url(#skill-R5clip);
+  clip-path: url(#skill-R5clip);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.skill-skillText:hover {
+  opacity: 1;
+}
+
+#skill-title {
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  right: 0;
+  text-align: right;
+}
+#skill-title0,
+#skill-title1 {
+  display: inline-block;
+  margin-right: 5px;
+  font-weight: bold;
+  color: lightgrey;
+  font-size: 90px;
+}
+#skill-title0 {
+  color: #444444;
+  font-size: 40px;
+}
+#skill-bgcog {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: translate(-25%, 40%);
+}

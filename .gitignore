@@ -1,4 +1,10 @@
 node_modules/
 client/dist/bundle.js
+client/dist/desktop/bundle.js
+client/dist/mobile/bundle.js
 package-lock.json
+
 client/src/data/unused
+
+client/src/1.0/
+client/dist/1.0/
