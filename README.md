@@ -1,4 +1,4 @@
-# Porthub
+# Portfolio Remaster
 
 > This repo is used to compile the static page rendered on [my github page](https://Late1nAutumn.github.io). [(repo)](https://github.com/Late1nAutumn/Late1nAutumn.github.io).
 
@@ -14,8 +14,8 @@
 
 ### Todos
 
-- loading background color
-- mac touchpad roll action
+- dynamic features
+- handle navigation backwards better
 
 ### Available Commands
 
