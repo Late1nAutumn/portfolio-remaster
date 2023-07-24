@@ -6,7 +6,7 @@ module.exports = {
     // "mobile/bundle": path.resolve(__dirname, "./client/src/mobile/app.jsx"),
   },
   output: {
-    path: path.resolve(__dirname, "./client/dist"),
+    path: path.resolve(__dirname, "./client/dist/bundle"),
     filename: "[name].js",
   },
   mode: "development",

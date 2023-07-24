@@ -22,13 +22,11 @@ class Greet extends React.Component {
     if (this.state.i === this.LINES.length) {
       console.log("intro animation finished");
       // End
-      this.props.flashPhoto(0);
+      this.props.flashPhoto(1);
       setTimeout(() => {
         this.props.setCoverState({ showIntro: true, greet: false });
-        window.onmousewheel = this.props.wheelRoll;
-        window.addEventListener("keydown", this.props.keyNavi);
-        window.addEventListener("touchmove", this.props.touchNavi);
-      }, 2000);
+        this.props.addViewSwitchListener();
+      }, 1000);
       setTimeout(() => this.props.setCoverState({ showArrow: true }), 6000);
     } else {
       this.setState({ hideBox: false });

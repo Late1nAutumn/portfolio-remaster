@@ -1,6 +1,6 @@
 import React from "react";
 
-import AppDetail from "./sub/appDetail";
+// import AppDetail from "./sub/appDetail";
 import Arrow from "./sub/arrow";
 
 const { DATA } = require("./data/appList_data");
@@ -9,7 +9,7 @@ class AppList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      app: 0,
+      app: 2,
     };
     this.switchApp = this.switchApp.bind(this);
   }
@@ -17,12 +17,11 @@ class AppList extends React.Component {
     this.setState({ app: i });
     document.getElementById("applist-content").scrollTo(0, 0);
   }
-  componentDidMount() {}
   render() {
     return (
       <div id="applist">
         <div id="applist-title" className="untouchable">
-          MY APP
+          MY PROJECTS
         </div>
         <div
           id="applist-list"
@@ -35,7 +34,12 @@ class AppList extends React.Component {
               onMouseEnter={() => this.switchApp(i)}
               onClick={() => this.switchApp(i)}
               key={i}
-            />
+            >
+              <div
+                className="applist-img-shade"
+                style={{ opacity: this.state.app === i ? "0" : "0.4" }}
+              />
+            </div>
           ))}
         </div>
         <div
@@ -51,22 +55,24 @@ class AppList extends React.Component {
         />
         <div
           id="applist-content"
-          onScroll={this.props.DenyScroll}
-          onTouchMove={this.props.DenyScroll}
+          onScroll={this.props.denyScroll}
+          onTouchMove={this.props.denyScroll}
           style={{ opacity: this.props.stage > 2 ? "1" : "0" }}
         >
           <div>
             <div className="applist-appTitle">{DATA[this.state.app].name}</div>
-            <div className="applist-appDescrip">
-              {DATA[this.state.app].descrip}
+            <div className="applist-appSubtitle">
+              {DATA[this.state.app].role}
             </div>
           </div>
-          {DATA[this.state.app].intro.map((text, i) => (
-            <p className="applist-highlights" key={i}>
-              {text}
-            </p>
-          ))}
-          <AppDetail appID={this.state.app} />
+          <p className="applist-desc">{DATA[this.state.app].desc}</p>
+          <ul>
+            {DATA[this.state.app].bullet.map((text, i) => (
+              <li className="applist-highlights" key={i}>
+                {text}
+              </li>
+            ))}
+          </ul>
         </div>
         {this.props.stage === 4 && !this.props.progressed ? (
           <Arrow nextView={this.props.nextView} />

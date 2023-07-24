@@ -19,7 +19,6 @@ class Contact extends React.Component {
       setTimeout(() => this.setState({ showAlert: false }), 2500);
     });
   }
-  componentDidMount() {}
   render() {
     return (
       <div id="contact">
@@ -32,7 +31,7 @@ class Contact extends React.Component {
                   As I'm now open for more opportunities,
                 </div>
                 <div className="contact-smallT">
-                  please feel free to reach me to know more about me!
+                  feel free to reach me to know more about me!
                 </div>
                 <a id="contact-hello" href="mailto:forest@gmail.com">
                   Say Hello!
@@ -55,13 +54,13 @@ class Contact extends React.Component {
             github.com/Late1nAutumn
           </a>
           <a
-            href="https://www.linkedin.com/in/conglin-pu-95b82614b"
+            href="https://www.linkedin.com/in/conglin-p-95b82614b"
             target="_blank"
           >
             <svg viewBox={linkedinIcon.viewBox}>
               <path d={linkedinIcon.path} />
             </svg>
-            linkedin.com/in/conglin-pu-95b82614b
+            linkedin.com/in/conglin-p-95b82614b
           </a>
         </div>
         {this.state.showAlert ? (

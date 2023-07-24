@@ -1,14 +1,14 @@
 module.exports = {
-  SkillImgs: ["html", "css", "react", "node", "nginx", "aws", "mongodb", "rn"],
+  SkillImgs: ["nginx", "aws", "ts", "sql", "angular", "react", "node", "dotnet"],
   SkillTexts: [
-    "HTML",
-    "CSS",
-    "React",
-    "NodeJS",
     "NGINX",
     "AWS",
-    "Mongo\nDB",
-    "React\nNative",
+    "TypeScript",
+    "SQL\nServer",
+    "Angular",
+    "React",
+    "NodeJS",
+    ".Net",
   ],
   SkillCog: {
     viewBox: "0 0 12800 12800",

@@ -5,7 +5,7 @@ import Greet from "./sub/cover_greet";
 import Chat from "./sub/cover_chat";
 import Arrow from "./sub/arrow";
 
-const { computeEyeCoordinate, forceMaxSize } = require("./operators");
+const { computeEyeCoordinate } = require("./operators");
 
 const { INTRO } = require("./data/cover_data");
 
@@ -136,22 +136,16 @@ class Cover extends React.Component {
           </div>
           {this.props.progressed ? null : (
             <div className="cover-wrap">
-              <table id="cover-imgHolder">
-                <tbody>
-                  <tr>
-                    <td>
-                      <img
-                        id="cover-photo"
-                        className="untouchable"
-                        src="../asset/portrait.jpg"
-                        style={forceMaxSize(this.props.safari, {
-                          opacity: this.state.showPhoto,
-                        })}
-                      />
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+              <div id="cover-imgHolder">
+                <svg height="100%" width="100%" viewBox="0 0 617 800">
+                  <image
+                    id="cover-photo"
+                    className="untouchable"
+                    href="/asset/portrait.jpg"
+                    style={{ opacity: this.state.showPhoto }}
+                  />
+                </svg>
+              </div>
             </div>
           )}
           {this.state.greet ? (
@@ -159,9 +153,7 @@ class Cover extends React.Component {
               time={this.props.time}
               flashPhoto={this.flashPhoto}
               setCoverState={this.setState.bind(this)}
-              wheelRoll={this.props.wheelRoll}
-              keyNavi={this.props.keyNavi}
-              touchNavi={this.props.touchNavi}
+              addViewSwitchListener={this.props.addViewSwitchListener}
             />
           ) : null}
           {this.props.progressed ? <Chat actView={this.props.actView} /> : null}

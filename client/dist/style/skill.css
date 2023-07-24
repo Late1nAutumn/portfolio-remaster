@@ -38,7 +38,8 @@
   width: 100%;
   background-color: rgba(0, 0, 0, 0.7);
   color: white;
-  font-size: 38px;
+  font-size: 28px;
+  font-family: 'Roboto Condensed', sans-serif;
   vertical-align: middle;
   text-align: center;
   white-space: pre-line;

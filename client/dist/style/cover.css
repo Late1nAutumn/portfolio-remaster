@@ -23,15 +23,15 @@
   vertical-align: middle;
 }
 #cover-photo {
-  max-height: 100%;
-  max-width: 100%;
-  border-radius: 15%;
+  /* border-radius: 15%; */
+  transition: 800ms;
 }
 #cover-portrait {
   display: block;
   height: 80%;
   width: 80%;
   margin: 0 auto;
+  transition: 800ms;
 }
 #cover-greet,
 #cover-chat,

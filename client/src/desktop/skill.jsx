@@ -172,7 +172,7 @@ class Skill extends React.Component {
         </svg>
         <div id="skill-title" className="untouchable">
           <div id="skill-title0">PART OF MY</div>
-          <div id="skill-title1">SKILL SET</div>
+          <div id="skill-title1">TECH STACK</div>
         </div>
         <svg
           id="skill-bgcog"

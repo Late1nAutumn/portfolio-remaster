@@ -1,7 +1,5 @@
 node_modules/
-client/dist/bundle.js
-client/dist/desktop/bundle.js
-client/dist/mobile/bundle.js
+client/dist/bundle/
 package-lock.json
 
 client/src/data/unused

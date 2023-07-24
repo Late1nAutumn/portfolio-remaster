@@ -1,20 +1,21 @@
 {
   "name": "porthub",
   "version": "1.0.0",
-  "description": "personal homepage with coding related info",
+  "description": "my portfolio",
   "author": "Forest",
   "license": "UNLICENSED",
   "engines": {
     "node": ">=6.13.0"
   },
   "scripts": {
-    "start": "nodemon server.js",
-    "build": "webpack -w",
+    "start": "node server.js",
+    "starting": "nodemon server.js",
+    "build": "webpack",
+    "building": "webpack -w",
     "winbuild": "C:/\"Program Files\"/nodejs/node_global/webpack -w",
     "test": ""
   },
   "dependencies": {
-    "axios": "^0.19.2",
     "react": "^16.10.2",
     "react-dom": "^16.10.2"
   },

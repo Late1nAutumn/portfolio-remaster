@@ -54,6 +54,7 @@
   margin: 4px 0;
   display: block;
   cursor: pointer;
+  color: grey;
 }
 #contact-links svg {
   margin-right: 8px;

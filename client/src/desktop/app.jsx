@@ -23,12 +23,13 @@ const VIEW_INDEX = {
 
 class App extends React.Component {
   constructor(props) {
-    console.log("version:2.1.2 Safari patch");
+    console.log("version:3.1");
     super(props);
-    this.WheelCD = false; // last 800 ms, delay 50 ms (40 also acceptable)
+    this.WheelCD = false; // last 800 ms, delay 0 ms (old value was 50ms, not sure why I did this)
     this.DenyScroll = false; // window last 100 ms
     this.DenyTimeout = undefined; // avoid fire during time window gaps
     this.TouchStartY = undefined;
+    this.NewView = undefined;
 
     this.state = {
       isSafari: false,
@@ -49,6 +50,7 @@ class App extends React.Component {
     this.touchNavi = this.touchNavi.bind(this);
     this.switchView = this.switchView.bind(this);
     this.resize = this.resize.bind(this);
+    this.addViewSwitchListener = this.addViewSwitchListener.bind(this);
   }
   launchAnimation(view) {
     if (view === 1) {
@@ -86,11 +88,11 @@ class App extends React.Component {
       setTimeout(() => this.setState({ v3stage: 4 }), 6100);
     }
   }
-  scrollCDTrigger() {
+  scrollCDTrigger(duration = 800) {
     this.WheelCD = true;
     setTimeout(() => {
       this.WheelCD = false;
-    }, 800);
+    }, duration);
   }
   denyScrollEvent() {
     // to avoid view change triggered by scrolling on other components
@@ -103,18 +105,32 @@ class App extends React.Component {
   }
   wheelRoll(e) {
     var deltaY = e.deltaY;
+    if (this.DenyScroll) return;
+    if (this.WheelCD) {
+      if (this.NewView) window.scrollTo(0, this.NewView * this.state.vh);
+    }
     // Depreciated approach
-    setTimeout(() => {
-      if (this.WheelCD || this.DenyScroll) return;
-      this.scrollCDTrigger();
-      this.switchView(deltaY > 0 ? 1 : -1);
-    }, 50);
+    else
+      setTimeout(() => {
+        // to be denied by scroll in other elements
+        if (this.WheelCD || this.DenyScroll) return;
+        this.scrollCDTrigger();
+        this.switchView(deltaY > 0 ? 1 : -1);
+      }, 10);
   }
   keyNavi({ key }) {
     if (this.WheelCD) return;
     this.scrollCDTrigger();
-    if (key === "ArrowUp" || key === "PageUp") this.switchView(-1);
-    else if (key === "ArrowDown" || key === "PageDown") this.switchView(1);
+    switch (key) {
+      case "ArrowUp":
+      case "PageUp":
+        this.switchView(-1);
+        break;
+      case "ArrowDown":
+      case "PageDown":
+        this.switchView(1);
+        break;
+    }
   }
   touchNavi(e) {
     // e.preventDefault(); written elsewhere
@@ -129,29 +145,29 @@ class App extends React.Component {
       this.TouchStartY = e.touches[0].pageY;
     }, 50);
   }
-  switchView(dir) {
-    if (
-      (dir < 0 && this.state.actView === 0) ||
-      (dir > 0 && this.state.actView === 4)
-    )
-      return;
+  switchView(dir = 1) {
+    // TODO: keys + scroll can still mess up views
     var direction = dir > 0 ? 1 : -1;
     var newView = this.state.actView + direction;
-    window.location = VIEW_ID[newView];
+    var location = VIEW_ID[newView];
+    if (!location) return;
+
+    this.NewView = newView;
+    window.location = location;
     // keep animation until view switch end
     this.setState({ actView: this.state.actView + direction / 2 });
     setTimeout(() => {
       this.TouchStartY = undefined;
-      window.scrollTo(0, newView * this.state.vh);
+      window.scrollTo(0, this.NewView * this.state.vh);
     }, 10);
     setTimeout(() => {
-      this.setState({ actView: newView });
+      this.setState({ actView: this.NewView });
     }, 500);
 
     setTimeout(() => {
-      if (newView > this.state.progress) {
-        this.launchAnimation(newView);
-        this.setState({ progress: newView });
+      if (this.NewView > this.state.progress) {
+        this.launchAnimation(this.NewView);
+        this.setState({ progress: this.NewView });
       }
     }, 800);
   }
@@ -160,9 +176,14 @@ class App extends React.Component {
       window.scrollTo(0, this.state.actView * this.state.vh)
     );
   }
+  addViewSwitchListener() {
+    window.onmousewheel = this.wheelRoll;
+    window.addEventListener("keydown", this.keyNavi);
+    window.addEventListener("touchmove", this.touchNavi);
+  }
   componentDidMount() {
     console.log(
-      "isS:" +
+      "isSafari:" +
         (navigator.userAgent.indexOf("Safari") > -1 &&
           !(navigator.userAgent.indexOf("Chrome") > -1))
     );
@@ -172,17 +193,15 @@ class App extends React.Component {
         !(navigator.userAgent.indexOf("Chrome") > -1),
     });
     if (window.performance) {
-      console.log("navigationType:" + performance.navigation.type);
-      console.log("progress:" + (VIEW_INDEX[window.location.hash] || -1));
+      var navigationType =
+        window.performance.getEntriesByType("navigation")[0].type;
+      var progress = VIEW_INDEX[window.location.hash];
+      console.log("navigationType:" + navigationType);
+      console.log("progress:" + (progress || -1));
       // start current view anime if load by refresh
-      if (
-        performance.navigation.type === 1 &&
-        VIEW_INDEX[window.location.hash]
-      ) {
-        window.onmousewheel = this.wheelRoll;
-        window.addEventListener("keydown", this.keyNavi);
-        window.addEventListener("touchmove", this.touchNavi);
-        this.launchAnimation(VIEW_INDEX[window.location.hash]);
+      if (progress) {
+        this.addViewSwitchListener();
+        this.launchAnimation(progress);
       }
     }
     this.resize();
@@ -204,9 +223,7 @@ class App extends React.Component {
             actView={this.state.actView < 1}
             progressed={this.state.progress > 0}
             nextView={() => this.switchView(1)}
-            wheelRoll={this.wheelRoll}
-            keyNavi={this.keyNavi}
-            touchNavi={this.touchNavi}
+            addViewSwitchListener={this.addViewSwitchListener}
             safari={this.state.isSafari}
           />
         </div>
@@ -228,7 +245,10 @@ class App extends React.Component {
         </div>
         <div className="view" id="view3">
           <AppList
-            DenyScroll={this.denyScrollEvent}
+            denyScroll={() => {
+              this.scrollCDTrigger();
+              this.denyScrollEvent();
+            }}
             stage={this.state.v3stage}
             progressed={this.state.progress > 3}
             nextView={() => this.switchView(1)}

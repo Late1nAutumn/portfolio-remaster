@@ -12,7 +12,9 @@ class Journey extends React.Component {
   render() {
     return (
       <div id="journey">
-        <div id="journey-title">My Journey</div>
+        <div id="journey-title" className="untouchable">
+          My Journey
+        </div>
         <div
           id="journey-stem"
           style={this.props.stage ? { height: "67%" } : {}}

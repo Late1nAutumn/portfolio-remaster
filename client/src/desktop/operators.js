@@ -111,15 +111,15 @@ module.exports = {
     document.getElementById(appendId).removeChild(temp);
   },
 
-  forceMaxSize(safari, style) {
-    // for safari
-    if (safari) {
-      var node = document.getElementById("view0");
-      if (node.clientHeight < node.clientWidth) style.height = "80vh";
-      // else style.width = "80vw";
-    }
-    return style;
-  },
+  // forceMaxSize(safari, style) {
+  //   // for safari
+  //   if (safari) {
+  //     var node = document.getElementById("view0");
+  //     if (node.clientHeight < node.clientWidth) style.height = "80vh";
+  //     // else style.width = "80vw";
+  //   }
+  //   return style;
+  // },
 
   // dev:
   /*
